@@ -67,7 +67,63 @@ namespace GymSystem_DataAccess
 
             return isFound;
         }
+        public static bool GetPersonInfoByNationalNo(
+    string NationalNo,
+    ref int PersonID,
+    ref string FirstName,
+    ref string SecondName,
+    ref string ThirdName,
+    ref string LastName,
+    ref short Gender,
+    ref string Phone,
+    ref string Email,
+    ref string Address,
+    ref DateTime DateOfBirth,
+    ref string ImagePath)
+        {
+            bool isFound = false;
 
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                string query = "SELECT * FROM People WHERE NationalNo = @NationalNo";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+                    try
+                    {
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                isFound = true;
+
+                                PersonID = (int)reader["PersonID"];
+                                FirstName = (string)reader["FirstName"];
+                                SecondName = reader["SecondName"] != DBNull.Value ? (string)reader["SecondName"] : "";
+                                ThirdName = reader["ThirdName"] != DBNull.Value ? (string)reader["ThirdName"] : "";
+                                LastName = (string)reader["LastName"];
+                                Gender = Convert.ToInt16(reader["Gender"]);
+                                DateOfBirth = (DateTime)reader["DateOfBirth"];
+                                Phone = (string)reader["Phone"];
+                                Email = reader["Email"] != DBNull.Value ? (string)reader["Email"] : "";
+                                Address = reader["Address"] != DBNull.Value ? (string)reader["Address"] : "";
+                                ImagePath = reader["ImagePath"] != DBNull.Value ? (string)reader["ImagePath"] : "";
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        isFound = false;
+                    }
+                }
+            }
+
+            return isFound;
+        }
         public static int AddNewPerson(
             string NationalNo,
             string FirstName,

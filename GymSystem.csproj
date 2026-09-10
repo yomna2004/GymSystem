@@ -122,6 +122,9 @@
     <EmbeddedResource Include="People\FrmAddUpdateTrainer.resx">
       <DependentUpon>FrmAddUpdateTrainer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="People\FrmManageStuff.resx">
+      <DependentUpon>FrmManageStuff.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -187,6 +190,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Female 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="GymSystem_Business\GymSystem_Business.csproj">
+      <Project>{f5a2dfcb-1401-4497-9fec-3f238906dd51}</Project>
+      <Name>GymSystem_Business</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SearchPerson.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

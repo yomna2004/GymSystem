@@ -91,7 +91,21 @@ namespace GymSystem_Business
             }
             return null;
         }
+        public static clsPerson Find(string NationalNo)
+        {
+            int PersonID = -1;
+            string FirstName = "", SecondName = "", ThirdName = "", LastName = "";
+            short Gender = 0; string Phone = ""; string Email = ""; string Address = "";
+            DateTime DateOfBirth = DateTime.Now; string ImagePath = "";
 
+            if (clsPersonData.GetPersonInfoByNationalNo(NationalNo, ref PersonID, ref FirstName, ref SecondName, ref ThirdName,
+                ref LastName, ref Gender, ref Phone, ref Email, ref Address, ref DateOfBirth, ref ImagePath))
+            {
+                return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, Phone, Email, Address, DateOfBirth, ImagePath);
+            }
+
+            return null;
+        }
         private bool _AddPerson()
         {
             this.PersonID = clsPersonData.AddNewPerson(NationalNo, FirstName, SecondName, ThirdName, LastName, Gender, Phone, Email, Address, DateOfBirth, ImagePath);

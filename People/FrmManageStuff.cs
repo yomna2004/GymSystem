@@ -16,5 +16,10 @@ namespace GymSystem.People
         {
             InitializeComponent();
         }
+
+        private void FrmManageStuff_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
