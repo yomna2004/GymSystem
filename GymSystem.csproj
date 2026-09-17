@@ -74,34 +74,40 @@
     <Compile Include="Login\loginfrm.Designer.cs">
       <DependentUpon>loginfrm.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\controls\ctrlPersonCard.cs">
+    <Compile Include="Trainers\controls\ctrlPersonCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="People\controls\ctrlPersonCard.Designer.cs">
+    <Compile Include="Trainers\controls\ctrlPersonCard.Designer.cs">
       <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\controls\ctrlPersonCardWithFilter.cs">
+    <Compile Include="Trainers\controls\ctrlPersonCardWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="People\controls\ctrlPersonCardWithFilter.Designer.cs">
+    <Compile Include="Trainers\controls\ctrlPersonCardWithFilter.Designer.cs">
       <DependentUpon>ctrlPersonCardWithFilter.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\FrmAddUpdateTrainer.cs">
+    <Compile Include="Trainers\FrmAddUpdateTrainer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="People\FrmAddUpdateTrainer.Designer.cs">
+    <Compile Include="Trainers\FrmAddUpdateTrainer.Designer.cs">
       <DependentUpon>FrmAddUpdateTrainer.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\FrmManageStuff.cs">
+    <Compile Include="Trainers\FrmManageTrainers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="People\FrmManageStuff.Designer.cs">
-      <DependentUpon>FrmManageStuff.cs</DependentUpon>
+    <Compile Include="Trainers\FrmManageTrainers.Designer.cs">
+      <DependentUpon>FrmManageTrainers.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\frmStaffAttendence.cs">
+    <Compile Include="Trainers\FrmShowTrainerInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="People\frmStaffAttendence.Designer.cs">
+    <Compile Include="Trainers\FrmShowTrainerInfo.Designer.cs">
+      <DependentUpon>FrmShowTrainerInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Trainers\frmStaffAttendence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Trainers\frmStaffAttendence.Designer.cs">
       <DependentUpon>frmStaffAttendence.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -113,17 +119,17 @@
     <EmbeddedResource Include="Login\loginfrm.resx">
       <DependentUpon>loginfrm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\controls\ctrlPersonCard.resx">
+    <EmbeddedResource Include="Trainers\controls\ctrlPersonCard.resx">
       <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\controls\ctrlPersonCardWithFilter.resx">
+    <EmbeddedResource Include="Trainers\controls\ctrlPersonCardWithFilter.resx">
       <DependentUpon>ctrlPersonCardWithFilter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\FrmAddUpdateTrainer.resx">
+    <EmbeddedResource Include="Trainers\FrmAddUpdateTrainer.resx">
       <DependentUpon>FrmAddUpdateTrainer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\FrmManageStuff.resx">
-      <DependentUpon>FrmManageStuff.cs</DependentUpon>
+    <EmbeddedResource Include="Trainers\FrmManageTrainers.resx">
+      <DependentUpon>FrmManageTrainers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -135,6 +141,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Trainers\FrmShowTrainerInfo.resx">
+      <DependentUpon>FrmShowTrainerInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -199,6 +208,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SearchPerson.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add Person 40.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

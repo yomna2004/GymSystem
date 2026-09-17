@@ -111,5 +111,11 @@ namespace GymSystem
             FrmAddUpdateTrainer frm = new FrmAddUpdateTrainer();
             frm.ShowDialog();
         }
+
+        private void manageStuffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmManageTrainers frm = new FrmManageTrainers();
+            frm.ShowDialog();
+        }
     }
 }

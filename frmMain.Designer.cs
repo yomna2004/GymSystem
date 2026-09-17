@@ -288,29 +288,30 @@
             this.personToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.personToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.personToolStripMenuItem.Name = "personToolStripMenuItem";
-            this.personToolStripMenuItem.Size = new System.Drawing.Size(103, 36);
-            this.personToolStripMenuItem.Text = "People";
+            this.personToolStripMenuItem.Size = new System.Drawing.Size(117, 36);
+            this.personToolStripMenuItem.Text = "Trainers";
             this.personToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.personToolStripMenuItem.Click += new System.EventHandler(this.personToolStripMenuItem_Click);
             // 
             // addNewTrainerToolStripMenuItem
             // 
             this.addNewTrainerToolStripMenuItem.Name = "addNewTrainerToolStripMenuItem";
-            this.addNewTrainerToolStripMenuItem.Size = new System.Drawing.Size(280, 36);
+            this.addNewTrainerToolStripMenuItem.Size = new System.Drawing.Size(317, 36);
             this.addNewTrainerToolStripMenuItem.Text = "Add New Trainer";
             this.addNewTrainerToolStripMenuItem.Click += new System.EventHandler(this.addNewTrainerToolStripMenuItem_Click);
             // 
             // manageStuffToolStripMenuItem
             // 
             this.manageStuffToolStripMenuItem.Name = "manageStuffToolStripMenuItem";
-            this.manageStuffToolStripMenuItem.Size = new System.Drawing.Size(280, 36);
-            this.manageStuffToolStripMenuItem.Text = "Manage Staff";
+            this.manageStuffToolStripMenuItem.Size = new System.Drawing.Size(317, 36);
+            this.manageStuffToolStripMenuItem.Text = "Manage Trainers";
+            this.manageStuffToolStripMenuItem.Click += new System.EventHandler(this.manageStuffToolStripMenuItem_Click);
             // 
             // staffAttendenceToolStripMenuItem
             // 
             this.staffAttendenceToolStripMenuItem.Name = "staffAttendenceToolStripMenuItem";
-            this.staffAttendenceToolStripMenuItem.Size = new System.Drawing.Size(280, 36);
-            this.staffAttendenceToolStripMenuItem.Text = "Staff Attendence";
+            this.staffAttendenceToolStripMenuItem.Size = new System.Drawing.Size(317, 36);
+            this.staffAttendenceToolStripMenuItem.Text = "Trainers Attendence";
             // 
             // membersToolStripMenuItem
             // 

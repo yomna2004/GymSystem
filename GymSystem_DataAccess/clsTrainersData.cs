@@ -185,18 +185,7 @@ namespace GymSystem_DataAccess
 
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
-                    string query = @"SELECT 
-                                    T.TrainerID,
-                                    T.PersonID,
-                                    P.FirstName + ' ' + ISNULL(P.SecondName, '') + ' ' + ISNULL(P.LastName, '') AS FullName,
-                                    P.Phone,
-                                    ISNULL(S.SpecializationName, 'N/A') AS SpecializationName,
-                                    T.HireDate,
-                                    T.IsActive
-                                 FROM Trainers T
-                                 INNER JOIN People P ON T.PersonID = P.PersonID
-                                 LEFT JOIN Specializations S ON T.SpecializationID = S.SpecializationID
-                                 ORDER BY T.TrainerID DESC";
+                    string query = @"SELECT * FROM TrainersView ORDER BY FullName";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {

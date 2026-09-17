@@ -26,14 +26,14 @@ namespace GymSystem.People
         private int _TrainerID = -1;
         private clsTrainers _trainer;
 
-        // Constructor for Add New
+        
         public FrmAddUpdateTrainer()
         {
             InitializeComponent();
             _Mode = enMode.AddNew;
         }
 
-        // Constructor for Update
+        
         public FrmAddUpdateTrainer(int TrainerID)
         {
             InitializeComponent();
