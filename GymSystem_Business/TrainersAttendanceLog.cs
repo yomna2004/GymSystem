@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GymSystem_Business
 {
-    internal class clsUsers
+    internal class TrainersAttendanceLog
     {
     }
 }

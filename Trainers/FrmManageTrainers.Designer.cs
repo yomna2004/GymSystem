@@ -42,8 +42,8 @@
             this.editInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClose = new System.Windows.Forms.Button();
-            this.cbIsActive = new System.Windows.Forms.ComboBox();
             this.dgvTrainers = new System.Windows.Forms.DataGridView();
+            this.cbIsActive = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrainers)).BeginInit();
             this.SuspendLayout();
@@ -53,11 +53,11 @@
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTitle.Location = new System.Drawing.Point(587, 28);
+            this.lblTitle.Location = new System.Drawing.Point(570, 29);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(325, 60);
+            this.lblTitle.Size = new System.Drawing.Size(407, 60);
             this.lblTitle.TabIndex = 2;
-            this.lblTitle.Text = "Manage Stuff";
+            this.lblTitle.Text = "Manage Trainers";
             // 
             // AddTrainerbtn
             // 
@@ -67,10 +67,10 @@
             this.AddTrainerbtn.Image = ((System.Drawing.Image)(resources.GetObject("AddTrainerbtn.Image")));
             this.AddTrainerbtn.ImageOffset = new System.Drawing.Point(0, 0);
             this.AddTrainerbtn.ImageRotate = 0F;
-            this.AddTrainerbtn.Location = new System.Drawing.Point(1387, 130);
+            this.AddTrainerbtn.Location = new System.Drawing.Point(1397, 147);
             this.AddTrainerbtn.Name = "AddTrainerbtn";
             this.AddTrainerbtn.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.AddTrainerbtn.Size = new System.Drawing.Size(95, 75);
+            this.AddTrainerbtn.Size = new System.Drawing.Size(74, 65);
             this.AddTrainerbtn.TabIndex = 4;
             this.AddTrainerbtn.Click += new System.EventHandler(this.AddTrainerbtn_Click);
             // 
@@ -85,7 +85,7 @@
             "Specialization Name",
             "Is Active",
             "Full Name"});
-            this.cbFilterBy.Location = new System.Drawing.Point(114, 175);
+            this.cbFilterBy.Location = new System.Drawing.Point(116, 175);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(210, 21);
             this.cbFilterBy.TabIndex = 10;
@@ -182,6 +182,16 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // dgvTrainers
+            // 
+            this.dgvTrainers.BackgroundColor = System.Drawing.Color.Navy;
+            this.dgvTrainers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTrainers.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvTrainers.Location = new System.Drawing.Point(12, 235);
+            this.dgvTrainers.Name = "dgvTrainers";
+            this.dgvTrainers.Size = new System.Drawing.Size(1459, 462);
+            this.dgvTrainers.TabIndex = 96;
+            // 
             // cbIsActive
             // 
             this.cbIsActive.FormattingEnabled = true;
@@ -194,16 +204,6 @@
             this.cbIsActive.Size = new System.Drawing.Size(73, 21);
             this.cbIsActive.TabIndex = 94;
             this.cbIsActive.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
-            // 
-            // dgvTrainers
-            // 
-            this.dgvTrainers.BackgroundColor = System.Drawing.Color.Navy;
-            this.dgvTrainers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTrainers.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvTrainers.Location = new System.Drawing.Point(12, 235);
-            this.dgvTrainers.Name = "dgvTrainers";
-            this.dgvTrainers.Size = new System.Drawing.Size(1459, 462);
-            this.dgvTrainers.TabIndex = 96;
             // 
             // FrmManageTrainers
             // 
@@ -245,7 +245,7 @@
         private System.Windows.Forms.ToolStripMenuItem editInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.ComboBox cbIsActive;
         private System.Windows.Forms.DataGridView dgvTrainers;
+        private System.Windows.Forms.ComboBox cbIsActive;
     }
 }

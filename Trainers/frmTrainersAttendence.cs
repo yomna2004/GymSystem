@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GymSystem.People
 {
-    public partial class frmStaffAttendence : Form
+    public partial class frmTrainersAttendence : Form
     {
-        public frmStaffAttendence()
+        public frmTrainersAttendence()
         {
             InitializeComponent();
         }

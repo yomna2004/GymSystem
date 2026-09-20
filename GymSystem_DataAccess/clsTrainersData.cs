@@ -35,7 +35,11 @@ namespace GymSystem_DataAccess
                                 }
                             }
                         }
-                        catch { isFound = false; }
+                        catch (Exception ex) 
+                        {
+                        LoggerHelperData.LogError("clsTrainersData.GetTrainerInfoByID", ex);
+                        isFound = false; 
+                        }
                     }
                 }
                 return isFound;
@@ -65,7 +69,11 @@ namespace GymSystem_DataAccess
                                 }
                             }
                         }
-                        catch { isFound = false; }
+                        catch (SqlException ex) 
+                        {
+                        LoggerHelperData.LogError("clsTrainersData.GetTrainerInfoByPersonID", ex);
+                        isFound = false; 
+                        }
                     }
                 }
                 return isFound;
@@ -102,9 +110,10 @@ namespace GymSystem_DataAccess
                                 trainerID = insertedID;
                             }
                         }
-                        catch
+                        catch (SqlException ex)
                         {
-                            trainerID = -1;
+                        LoggerHelperData.LogError("clsTrainersData.AddNewTrainer", ex);
+                        trainerID = -1;
                         }
                     }
                 }
@@ -128,9 +137,10 @@ namespace GymSystem_DataAccess
                             connection.Open();
                             rowsAffected = command.ExecuteNonQuery();
                         }
-                        catch
+                        catch (Exception ex) 
                         {
-                            return false;
+                        LoggerHelperData.LogError("clsTrainersData.DeleteTrainer", ex);
+                        return false;
                         }
                     }
                 }
@@ -169,9 +179,10 @@ namespace GymSystem_DataAccess
                             connection.Open();
                             rowsAffected = command.ExecuteNonQuery();
                         }
-                        catch
+                        catch (SqlException ex) 
                         {
-                            return false;
+                        LoggerHelperData.LogError("clsTrainersData.UpdateTrainer", ex);
+                        return false;
                         }
                     }
                 }
@@ -189,19 +200,22 @@ namespace GymSystem_DataAccess
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        try
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            connection.Open();
-                            using (SqlDataReader reader = command.ExecuteReader())
+                            if (reader.HasRows)
                             {
-                                if (reader.HasRows)
-                                {
-                                    dt.Load(reader);
-                                }
+                                dt.Load(reader);
                             }
                         }
-                        catch { }
                     }
+                    catch (SqlException ex)
+                    {
+                        LoggerHelperData.LogError("clsTrainersData.GetAllTrainers", ex);
+                    }
+                }
                 }
 
                 return dt;
@@ -228,9 +242,10 @@ namespace GymSystem_DataAccess
                                 isFound = true;
                             }
                         }
-                        catch
+                        catch(SqlException ex) 
                         {
-                            isFound = false;
+                        LoggerHelperData.LogError("clsTrainersData.IsTrainerExist", ex);
+                        isFound = false;
                         }
                     }
                 }

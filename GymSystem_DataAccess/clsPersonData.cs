@@ -58,8 +58,9 @@ namespace GymSystem_DataAccess
                             }
                         }
                     }
-                    catch
+                    catch(Exception ex) 
                     {
+                        LoggerHelperData.LogError("clsPersonData.GetPersonInfoByID", ex);
                         isFound = false;
                     }
                 }
@@ -115,8 +116,9 @@ namespace GymSystem_DataAccess
                             }
                         }
                     }
-                    catch
+                    catch(Exception ex) 
                     {
+                        LoggerHelperData.LogError("clsPersonData.GetPersonInfoByNationalNo", ex);
                         isFound = false;
                     }
                 }
@@ -198,8 +200,10 @@ namespace GymSystem_DataAccess
                             personID = insertedID;
                         }
                     }
-                    catch
+                    catch(Exception ex) 
                     {
+                        LoggerHelperData.LogError("clsPersonData.AddNewPerson", ex);
+
                         personID = -1;
                     }
                 }
@@ -287,8 +291,9 @@ namespace GymSystem_DataAccess
                         connection.Open();
                         rowsAffected = command.ExecuteNonQuery();
                     }
-                    catch
+                    catch(Exception ex)
                     {
+                        LoggerHelperData.LogError("clsPersonData.UpdatePerson", ex);
                         return false;
                     }
                 }
@@ -333,7 +338,10 @@ namespace GymSystem_DataAccess
                             }
                         }
                     }
-                    catch { }
+                    catch(SqlException ex)
+                    {
+                        LoggerHelperData.LogError("clsPersonData.GetAllPeople", ex);
+                    }
                 }
             }
 
@@ -357,8 +365,9 @@ namespace GymSystem_DataAccess
                         connection.Open();
                         rowsAffected = command.ExecuteNonQuery();
                     }
-                    catch
+                    catch(Exception ex)
                     {
+                        LoggerHelperData.LogError("clsPersonData.DeletePerson", ex);
                         return false;
                     }
                 }
@@ -388,8 +397,9 @@ namespace GymSystem_DataAccess
                             isFound = true;
                         }
                     }
-                    catch
+                    catch(SqlException ex) 
                     {
+                        LoggerHelperData.LogError("clsPersonData.IsPersonExist", ex);
                         isFound = false;
                     }
                 }

@@ -35,6 +35,7 @@ namespace GymSystem_DataAccess
                     }
                     catch(Exception ex) 
                     {
+                        LoggerHelperData.LogError("clsSpecializationData.GetSpecializationInfoByName", ex);
                         isFound = false;
                     }
                 }
@@ -67,8 +68,9 @@ namespace GymSystem_DataAccess
                             }
                         }
                     }
-                    catch
+                    catch(Exception ex) 
                     {
+                        LoggerHelperData.LogError("clsSpecializationData.GetSpecializationInfoByID", ex);
                         isFound = false;
                     }
                 }
@@ -97,9 +99,9 @@ namespace GymSystem_DataAccess
                             }
                         }
                     }
-                    catch
+                    catch(Exception ex) 
                     {
-                        // handle error if needed
+                        LoggerHelperData.LogError("clsSpecializationData.GetAllSpecializations", ex);
                     }
                 }
             }

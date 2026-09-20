@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GymSystem_DataAccess
 {
-    internal class clsUsers
+    internal class TrainersAttendanceLogData
     {
     }
 }

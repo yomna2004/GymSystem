@@ -104,11 +104,11 @@
     <Compile Include="Trainers\FrmShowTrainerInfo.Designer.cs">
       <DependentUpon>FrmShowTrainerInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Trainers\frmStaffAttendence.cs">
+    <Compile Include="Trainers\frmTrainersAttendence.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Trainers\frmStaffAttendence.Designer.cs">
-      <DependentUpon>frmStaffAttendence.cs</DependentUpon>
+    <Compile Include="Trainers\frmTrainersAttendence.Designer.cs">
+      <DependentUpon>frmTrainersAttendence.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -143,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="Trainers\FrmShowTrainerInfo.resx">
       <DependentUpon>FrmShowTrainerInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Trainers\frmTrainersAttendence.resx">
+      <DependentUpon>frmTrainersAttendence.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -50,7 +50,8 @@
     <Compile Include="clsSubscriptionPlans.cs" />
     <Compile Include="clsSubscriptions.cs" />
     <Compile Include="clsTrainers.cs" />
-    <Compile Include="clsUsers.cs" />
+    <Compile Include="clsUser.cs" />
+    <Compile Include="TrainersAttendanceLog.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GymSystem_DataAccess\GymSystem_DataAccess.csproj">
