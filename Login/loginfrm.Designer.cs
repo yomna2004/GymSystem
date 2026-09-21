@@ -39,7 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chkRememberMe = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -181,20 +181,20 @@
             this.label4.TabIndex = 153;
             this.label4.Text = "Version 1.0";
             // 
-            // checkBox1
+            // chkRememberMe
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackgroundImage = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.checkBox1.Location = new System.Drawing.Point(524, 246);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(137, 24);
-            this.checkBox1.TabIndex = 154;
-            this.checkBox1.Text = "Remember Me.";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkRememberMe.AutoSize = true;
+            this.chkRememberMe.BackgroundImage = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
+            this.chkRememberMe.Checked = true;
+            this.chkRememberMe.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkRememberMe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkRememberMe.ForeColor = System.Drawing.SystemColors.Window;
+            this.chkRememberMe.Location = new System.Drawing.Point(524, 246);
+            this.chkRememberMe.Name = "chkRememberMe";
+            this.chkRememberMe.Size = new System.Drawing.Size(137, 24);
+            this.chkRememberMe.TabIndex = 154;
+            this.chkRememberMe.Text = "Remember Me.";
+            this.chkRememberMe.UseVisualStyleBackColor = true;
             // 
             // loginfrm
             // 
@@ -203,7 +203,7 @@
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.BackgroundImage = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
             this.ClientSize = new System.Drawing.Size(984, 419);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.chkRememberMe);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -239,7 +239,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chkRememberMe;
     }
 }
 

@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GymSystem
+namespace GymSystem.Global_Classes
 {
-    public class clsUtil
+    public class util
     {
         public static string GenerateGUID()
         {
@@ -17,17 +17,17 @@ namespace GymSystem
         }
         public static bool CreateFolderIfDoesNotExist(string FolderPath)
         {
-            if(!Directory.Exists(FolderPath))
+            if (!Directory.Exists(FolderPath))
             {
                 try
                 {
                     Directory.CreateDirectory(FolderPath);
                     return true;
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     LoggerHelper.LogError("Error creating folder: ", ex);
-             
+
                     return false;
                 }
             }
@@ -45,7 +45,7 @@ namespace GymSystem
         public static bool CopyImageToProjectImagesFolder(ref string sourceFile)
         {
             string DestinationFolder = @"C:\GymSystem-People-Images\";
-            if(!CreateFolderIfDoesNotExist(DestinationFolder))
+            if (!CreateFolderIfDoesNotExist(DestinationFolder))
             {
                 return false;
             }
@@ -54,10 +54,10 @@ namespace GymSystem
             {
                 File.Copy(sourceFile, DestinationFile, true);
             }
-            catch(Exception iox)
+            catch (Exception iox)
             {
-               MessageBox.Show(iox.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-               LoggerHelper.LogError("Error",iox);
+                MessageBox.Show(iox.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoggerHelper.LogError("Error", iox);
                 return false;
             }
             sourceFile = DestinationFile;

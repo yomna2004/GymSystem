@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GymSystem
+namespace GymSystem.Global_Classes
 {
-    internal class LoggerHelper
+    public class LoggerHelper
     {
         private static readonly string sourceName = "GymSystemApp";
         private static readonly string logName = "Application";

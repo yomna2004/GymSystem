@@ -1,4 +1,5 @@
-﻿using GymSystem.Properties;
+﻿using GymSystem.Global_Classes;
+using GymSystem.Properties;
 using GymSystem_Business;
 using System;
 using System.CodeDom.Compiler;
@@ -155,7 +156,7 @@ namespace GymSystem.People
             if (pbPersonImage.ImageLocation != null)
             {
                 string SourceImageFile = pbPersonImage.ImageLocation.ToString();
-                if (clsUtil.CopyImageToProjectImagesFolder(ref SourceImageFile))
+                if (util.CopyImageToProjectImagesFolder(ref SourceImageFile))
                 {
                     pbPersonImage.ImageLocation = SourceImageFile;
                     return true;
