@@ -11,18 +11,18 @@ namespace GymSystem_DataAccess
     public class clsPersonData
     {
         public static bool GetPersonInfoByID(
-            int PersonID,
-            ref string NationalNo,
-            ref string FirstName,
-            ref string SecondName,
-            ref string ThirdName,
-            ref string LastName,
-            ref short Gender,
-            ref string Phone,
-            ref string Email,
-            ref string Address,
-            ref DateTime DateOfBirth,
-            ref string ImagePath)
+       int PersonID,
+       ref string NationalNo,
+       ref string FirstName,
+       ref string SecondName,
+       ref string ThirdName,
+       ref string LastName,
+       ref short Gender,
+       ref string Phone,
+       ref string Email,
+       ref string Address,
+       ref DateTime DateOfBirth,
+       ref string ImagePath)
         {
             bool isFound = false;
 
@@ -49,16 +49,18 @@ namespace GymSystem_DataAccess
                                 SecondName = reader["SecondName"] != DBNull.Value ? (string)reader["SecondName"] : "";
                                 ThirdName = reader["ThirdName"] != DBNull.Value ? (string)reader["ThirdName"] : "";
                                 LastName = (string)reader["LastName"];
-                                Gender = Convert.ToInt16(reader["Gender"]);
-                                DateOfBirth = (DateTime)reader["DateOfBirth"];
-                                Phone = (string)reader["Phone"];
+
+                                Gender = reader["Gender"] != DBNull.Value ? Convert.ToInt16(reader["Gender"]) : (short)0;
+                                DateOfBirth = reader["DateOfBirth"] != DBNull.Value ? (DateTime)reader["DateOfBirth"] : DateTime.Now;
+
+                                Phone = reader["Phone"] != DBNull.Value ? (string)reader["Phone"] : "";
                                 Email = reader["Email"] != DBNull.Value ? (string)reader["Email"] : "";
                                 Address = reader["Address"] != DBNull.Value ? (string)reader["Address"] : "";
                                 ImagePath = reader["ImagePath"] != DBNull.Value ? (string)reader["ImagePath"] : "";
                             }
                         }
                     }
-                    catch(Exception ex) 
+                    catch (Exception ex)
                     {
                         LoggerHelperData.LogError("clsPersonData.GetPersonInfoByID", ex);
                         isFound = false;

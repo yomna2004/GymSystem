@@ -45,7 +45,51 @@ namespace GymSystem_DataAccess
                 return isFound;
             }
 
-            public static bool GetTrainerInfoByPersonID(int PersonID, ref int TrainerID, ref int SpecializationID, ref DateTime HireDate, ref bool IsActive)
+        public static bool GetTrainerInfoByFullName(string FullName, ref int TrainerID, ref int PersonID, ref int SpecializationID, ref DateTime HireDate, ref bool IsActive)
+        {
+            bool isFound = false;
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                string query = @"SELECT T.* 
+                         FROM Trainers T
+                         INNER JOIN People P ON T.PersonID = P.PersonID
+                         WHERE (P.FirstName + ' ' + P.LastName) LIKE @FullName 
+                            OR P.FirstName LIKE @FullName 
+                            OR P.LastName LIKE @FullName;";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@FullName", "%" + FullName.Trim() + "%");
+
+                    try
+                    {
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                isFound = true;
+                                TrainerID = (int)reader["TrainerID"];
+                                PersonID = (int)reader["PersonID"];
+                                SpecializationID = reader["SpecializationID"] != DBNull.Value ? (int)reader["SpecializationID"] : -1;
+                                HireDate = (DateTime)reader["HireDate"];
+                                IsActive = (bool)reader["IsActive"];
+                            }
+                        }
+                    }
+                    catch (SqlException ex)
+                    {
+                        LoggerHelperData.LogError("clsTrainersData.GetTrainerInfoByFullName", ex);
+                        isFound = false;
+                    }
+                }
+            }
+
+            return isFound;
+        }
+
+        public static bool GetTrainerInfoByPersonID(int PersonID, ref int TrainerID, ref int SpecializationID, ref DateTime HireDate, ref bool IsActive)
             {
                 bool isFound = false;
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))

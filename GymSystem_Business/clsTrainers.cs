@@ -71,6 +71,23 @@ namespace GymSystem_Business
             return null;
         }
 
+        public static clsTrainers FindByFullName(string fullName)
+        {
+            int trainerID = -1;
+            int personID = -1;
+            int specializationID = -1;
+            DateTime hireDate = DateTime.Now;
+            bool isActive = false;
+
+            if (clsTrainersData.GetTrainerInfoByFullName(fullName, ref trainerID, ref personID, ref specializationID, ref hireDate, ref isActive))
+            {
+                return new clsTrainers(trainerID, personID, specializationID, hireDate, isActive);
+            }
+            else
+            {
+                return null; 
+            }
+        }
         public static clsTrainers FindByPersonID(int PersonID)
         {
             int TrainerID = -1; int SpecializationID = -1; DateTime HireDate = DateTime.Now; bool IsActive = true;

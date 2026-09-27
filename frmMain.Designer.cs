@@ -312,6 +312,7 @@
             this.staffAttendenceToolStripMenuItem.Name = "staffAttendenceToolStripMenuItem";
             this.staffAttendenceToolStripMenuItem.Size = new System.Drawing.Size(317, 36);
             this.staffAttendenceToolStripMenuItem.Text = "Trainers Attendence";
+            this.staffAttendenceToolStripMenuItem.Click += new System.EventHandler(this.staffAttendenceToolStripMenuItem_Click);
             // 
             // membersToolStripMenuItem
             // 

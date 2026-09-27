@@ -117,5 +117,11 @@ namespace GymSystem
             FrmManageTrainers frm = new FrmManageTrainers();
             frm.ShowDialog();
         }
+
+        private void staffAttendenceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTrainersAttendence frm = new frmTrainersAttendence();
+            frm.ShowDialog();
+        }
     }
 }
