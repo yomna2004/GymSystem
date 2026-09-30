@@ -71,9 +71,9 @@ namespace GymSystem_Business
             return false;
         }
 
-        public static bool CheckOut(int trainerID)
+        public static bool CheckOut(int LogID)
         {
-            return TrainersAttendanceLogData.CheckOut(trainerID, DateTime.Now, (byte)enAttendanceStatus.CheckedOut);
+            return TrainersAttendanceLogData.CheckOutByLogID(LogID);
         }
 
         public static bool DeleteLog(int logID)

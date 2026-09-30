@@ -91,6 +91,7 @@ namespace GymSystem.People
             dgvTrainers.DataSource = _dtTodayAttendanceLogs;
             cbSearchBy.SelectedIndex = 0;
             lblRecordsCount.Text = _dtTodayAttendanceLogs.DefaultView.Count.ToString();
+
             dgvTrainers.AllowUserToAddRows = false;
             if (dgvTrainers.Rows.Count > 0)
             {
@@ -222,6 +223,61 @@ namespace GymSystem.People
         private void SpecializationsCb_SelectedIndexChanged(object sender, EventArgs e)
         {
             _FillNamesComboBox();
+        }
+
+        private void checkOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvTrainers.CurrentRow == null || dgvTrainers.CurrentRow.Cells["LogID"]?.Value == null)
+            {
+                MessageBox.Show("Please select a valid record to check out.", "Select Record", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (MessageBox.Show("Are you sure you want to checkout this trainer?", "Confirm Check-Out", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                int LogID = Convert.ToInt32(dgvTrainers.CurrentRow.Cells["LogID"].Value);
+                if(clsTrainersAttendanceLog.CheckOut(LogID))
+                {
+                    MessageBox.Show("Trainer checked out successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _dtTodayAttendanceLogs = clsTrainersAttendanceLog.GetAllTodayAttendanceLogs();
+                    dgvTrainers.DataSource = null;
+                    dgvTrainers.DataSource = _dtTodayAttendanceLogs;
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Failed to check out trainer. Make sure the trainer is currently checked in.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvTrainers.CurrentRow == null || dgvTrainers.CurrentRow.Cells["LogID"]?.Value == null)
+            {
+                MessageBox.Show("Please select a valid record to delete.", "Select Record", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (MessageBox.Show("Are you sure you want to delete this attendance log?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                int logID = Convert.ToInt32(dgvTrainers.CurrentRow.Cells["LogID"].Value);
+
+                if (clsTrainersAttendanceLog.DeleteLog(logID))
+                {
+                    MessageBox.Show("Log deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    _dtTodayAttendanceLogs = clsTrainersAttendanceLog.GetAllTodayAttendanceLogs();
+                    dgvTrainers.DataSource = null;
+                    dgvTrainers.DataSource = _dtTodayAttendanceLogs;
+
+                    _UpdateRecordsCount(); 
+                }
+                else
+                {
+                    MessageBox.Show("Failed to delete log.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

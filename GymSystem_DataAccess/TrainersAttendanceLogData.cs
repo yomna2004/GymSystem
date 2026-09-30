@@ -53,27 +53,20 @@ namespace GymSystem_DataAccess
             return LogID;
         }
 
-        public static bool CheckOut(int TrainerID, DateTime CheckOutDateTime, byte Status)
+        public static bool CheckOutByLogID(int logID)
         {
             int rowsAffected = 0;
 
             using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 string query = @"UPDATE TrainersAttendanceLog
-                                 SET CheckOutDateTime = @CheckOutDateTime,
-                                     Status = @Status
-                                 WHERE LogID = (
-                                     SELECT TOP 1 LogID 
-                                     FROM TrainersAttendanceLog 
-                                     WHERE TrainerID = @TrainerID AND CheckOutDateTime IS NULL 
-                                     ORDER BY LogID DESC
-                                 );";
+                         SET CheckOutDate = GETDATE(),
+                             Status = 2 -- CheckedOut
+                         WHERE LogID = @LogID AND CheckOutDate IS NULL;";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
-                    command.Parameters.AddWithValue("@TrainerID", TrainerID);
-                    command.Parameters.AddWithValue("@CheckOutDateTime", CheckOutDateTime);
-                    command.Parameters.AddWithValue("@Status", Status);
+                    command.Parameters.AddWithValue("@LogID", logID);
 
                     try
                     {
@@ -82,8 +75,8 @@ namespace GymSystem_DataAccess
                     }
                     catch (Exception ex)
                     {
-                        LoggerHelperData.LogError("TrainersAttendanceLogData.CheckOut", ex);
-                        rowsAffected = 0;
+                        LoggerHelperData.LogError("TrainersAttendanceLogData.CheckOutByLogID", ex);
+                        return false;
                     }
                 }
             }
