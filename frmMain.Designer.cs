@@ -330,27 +330,27 @@
             // addNewMemberToolStripMenuItem
             // 
             this.addNewMemberToolStripMenuItem.Name = "addNewMemberToolStripMenuItem";
-            this.addNewMemberToolStripMenuItem.Size = new System.Drawing.Size(329, 36);
+            this.addNewMemberToolStripMenuItem.Size = new System.Drawing.Size(407, 36);
             this.addNewMemberToolStripMenuItem.Text = "Add New Member";
             // 
             // mangeMembersToolStripMenuItem
             // 
             this.mangeMembersToolStripMenuItem.Name = "mangeMembersToolStripMenuItem";
-            this.mangeMembersToolStripMenuItem.Size = new System.Drawing.Size(329, 36);
+            this.mangeMembersToolStripMenuItem.Size = new System.Drawing.Size(407, 36);
             this.mangeMembersToolStripMenuItem.Text = "Manage Members";
             this.mangeMembersToolStripMenuItem.Click += new System.EventHandler(this.mangeMembersToolStripMenuItem_Click);
             // 
             // subscriptionsRenewToolStripMenuItem
             // 
             this.subscriptionsRenewToolStripMenuItem.Name = "subscriptionsRenewToolStripMenuItem";
-            this.subscriptionsRenewToolStripMenuItem.Size = new System.Drawing.Size(329, 36);
-            this.subscriptionsRenewToolStripMenuItem.Text = "Subscriptions/Renew";
+            this.subscriptionsRenewToolStripMenuItem.Size = new System.Drawing.Size(407, 36);
+            this.subscriptionsRenewToolStripMenuItem.Text = "Renew Subscription";
             // 
             // memberAttendanceToolStripMenuItem
             // 
             this.memberAttendanceToolStripMenuItem.Name = "memberAttendanceToolStripMenuItem";
-            this.memberAttendanceToolStripMenuItem.Size = new System.Drawing.Size(329, 36);
-            this.memberAttendanceToolStripMenuItem.Text = "Member Attendance";
+            this.memberAttendanceToolStripMenuItem.Size = new System.Drawing.Size(407, 36);
+            this.memberAttendanceToolStripMenuItem.Text = "Member Attendance Details";
             // 
             // usersToolStripMenuItem
             // 

@@ -76,6 +76,30 @@
     <Compile Include="Login\loginfrm.Designer.cs">
       <DependentUpon>loginfrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Members\FrmAddUpdateMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Members\FrmAddUpdateMember.Designer.cs">
+      <DependentUpon>FrmAddUpdateMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Members\FrmManageMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Members\FrmManageMembers.Designer.cs">
+      <DependentUpon>FrmManageMembers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Members\FrmMemberAttendanceDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Members\FrmMemberAttendanceDetails.Designer.cs">
+      <DependentUpon>FrmMemberAttendanceDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Members\FrmRenewSubscription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Members\FrmRenewSubscription.Designer.cs">
+      <DependentUpon>FrmRenewSubscription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Trainers\controls\ctrlPersonCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
