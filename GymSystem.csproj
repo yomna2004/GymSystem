@@ -144,6 +144,9 @@
     <EmbeddedResource Include="Login\loginfrm.resx">
       <DependentUpon>loginfrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Members\FrmAddUpdateMember.resx">
+      <DependentUpon>FrmAddUpdateMember.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Trainers\controls\ctrlPersonCard.resx">
       <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </EmbeddedResource>

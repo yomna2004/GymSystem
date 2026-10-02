@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GymSystem_Business
+namespace GymSystem_DataAccess
 {
-    internal class clsMembers
+    public class clsSubscriptionsData
     {
+
     }
 }

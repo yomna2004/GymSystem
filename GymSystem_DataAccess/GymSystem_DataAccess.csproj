@@ -44,14 +44,14 @@
   <ItemGroup>
     <Compile Include="clsAttendanceLog.cs" />
     <Compile Include="clsDataAccessSettings.cs" />
-    <Compile Include="clsMembers.cs" />
+    <Compile Include="clsMembersData.cs" />
     <Compile Include="clsPayments.cs" />
     <Compile Include="clsPersonData.cs" />
     <Compile Include="clsSpecializationData.cs" />
     <Compile Include="LoggerHelperData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="clsSubscriptionPlans.cs" />
-    <Compile Include="clsSubscriptions.cs" />
+    <Compile Include="clsSubscriptionsData.cs" />
     <Compile Include="clsTrainersData.cs" />
     <Compile Include="clsUserData.cs" />
     <Compile Include="TrainersAttendanceLogData.cs" />
