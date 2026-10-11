@@ -141,15 +141,15 @@ namespace GymSystem.People
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to delete Person [" + dgvTrainers.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show("Are you sure you want to delete Trainer [" + dgvTrainers.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 if (clsTrainers.DeleteTrainer((int)dgvTrainers.CurrentRow.Cells[1].Value))
                 {
-                    MessageBox.Show("Person Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FrmManageStuff_Load(null, null);
+                    MessageBox.Show("Trainer Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _RefreshTrainersList();
                 }
                 else
-                    MessageBox.Show("Person was not deleted because it has data linked to it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Trainer was not deleted because it has data linked to it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -176,6 +176,34 @@ namespace GymSystem.People
                     break;
             }
             lblRecordsCount.Text = _dtTrainers.DefaultView.Count.ToString(); 
+        }
+
+        private void reactivateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to Reactivate that Trainer [" + dgvTrainers.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                if (clsTrainers.Reactivate((int)dgvTrainers.CurrentRow.Cells[1].Value))
+                {
+                    MessageBox.Show("Trainer Reactivated Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _RefreshTrainersList();
+                }
+                else
+                    MessageBox.Show("Trainer did not Reactivated ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void deactivateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to Deactivate that Trainer [" + dgvTrainers.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                if (clsTrainers.Deactivate((int)dgvTrainers.CurrentRow.Cells[1].Value))
+                {
+                    MessageBox.Show("Trainer Deactivated Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _RefreshTrainersList();
+                }
+                else
+                    MessageBox.Show("Trainer did not Deactivated ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

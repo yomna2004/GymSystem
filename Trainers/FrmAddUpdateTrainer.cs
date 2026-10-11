@@ -172,7 +172,6 @@ namespace GymSystem.People
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            
             if (!this.ValidateChildren())
             {
                 MessageBox.Show("Some fields are not valid! Put the mouse over the red icon(s) to see the error.",
@@ -180,26 +179,22 @@ namespace GymSystem.People
                 return;
             }
 
-            
             if (!_HandlePersonImage())
             {
                 return;
             }
 
-           
-            if (comboBox1.SelectedValue == null)
+            if (comboBox1.SelectedValue == null || !int.TryParse(comboBox1.SelectedValue.ToString(), out int specializationID))
             {
                 MessageBox.Show("Please select a valid specialization.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-           
             if (_trainer.PersonInfo == null)
             {
                 _trainer.PersonInfo = new clsPerson();
             }
 
-           
             _trainer.PersonInfo.FirstName = txtFirstName.Text.Trim();
             _trainer.PersonInfo.SecondName = txtSecondName.Text.Trim();
             _trainer.PersonInfo.ThirdName = txtThirdName.Text.Trim();
@@ -210,21 +205,20 @@ namespace GymSystem.People
             _trainer.PersonInfo.DateOfBirth = dtpDateOfBirth.Value;
             _trainer.PersonInfo.Phone = txtPhone.Text.Trim();
             _trainer.PersonInfo.Email = txtEmail.Text.Trim();
-
             _trainer.PersonInfo.ImagePath = !string.IsNullOrEmpty(pbPersonImage.ImageLocation) ? pbPersonImage.ImageLocation : "";
 
-           
             if (!_trainer.PersonInfo.Save())
             {
                 MessageBox.Show("Error: Person Data was not saved successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            
             _trainer.PersonID = _trainer.PersonInfo.PersonID;
-            _trainer.SpecializationID = Convert.ToInt32(comboBox1.SelectedValue);
-            
-            
+            _trainer.SpecializationID = specializationID;
+            _trainer.CreatedByUserID = clsGlobal.CurrentUser.UserID;
+            _trainer.HireDate = DateTime.Now;
+            _trainer.IsActive = true; 
+
             if (_trainer.Save())
             {
                 lblTrainerID.Text = _trainer.TrainerID.ToString();
@@ -254,11 +248,9 @@ namespace GymSystem.People
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                // Process the selected file
                 string selectedFilePath = openFileDialog1.FileName;
                 pbPersonImage.Load(selectedFilePath);
                 llRemoveImage.Visible = true;
-                // ...
             }
         }
 

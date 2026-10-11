@@ -14,6 +14,7 @@ namespace GymSystem_Business
 
         public int MemberID { get; set; }
         public int PersonID { get; set; }
+        public clsPerson PersonInfo;
         public string MemberCode { get; set; }
         public DateTime JoinDate { get; set; }
         public bool IsActive { get; set; }
@@ -33,6 +34,7 @@ namespace GymSystem_Business
         {
             this.MemberID = memberID;
             this.PersonID = personID;
+            this.PersonInfo = clsPerson.Find(personID);
             this.MemberCode = memberCode;
             this.JoinDate = joinDate;
             this.IsActive = isActive;

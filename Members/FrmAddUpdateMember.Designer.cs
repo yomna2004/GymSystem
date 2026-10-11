@@ -30,15 +30,14 @@
         {
             this.lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtLastName = new GymSystem.CustomTextBox();
-            this.txtSecondName = new GymSystem.CustomTextBox();
-            this.txtPhone = new GymSystem.CustomTextBox();
-            this.txtAddress = new GymSystem.CustomTextBox();
-            this.txtEmail = new GymSystem.CustomTextBox();
-            this.txtNationalNo = new GymSystem.CustomTextBox();
-            this.txtThirdName = new GymSystem.CustomTextBox();
-            this.txtFirstName = new GymSystem.CustomTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.llRemoveImage = new System.Windows.Forms.LinkLabel();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
@@ -62,13 +61,14 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.MemberCodeValue = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.txtLastName = new GymSystem.CustomTextBox();
+            this.txtSecondName = new GymSystem.CustomTextBox();
+            this.txtPhone = new GymSystem.CustomTextBox();
+            this.txtAddress = new GymSystem.CustomTextBox();
+            this.txtEmail = new GymSystem.CustomTextBox();
+            this.txtNationalNo = new GymSystem.CustomTextBox();
+            this.txtThirdName = new GymSystem.CustomTextBox();
+            this.txtFirstName = new GymSystem.CustomTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +78,7 @@
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTitle.Location = new System.Drawing.Point(265, 21);
+            this.lblTitle.Location = new System.Drawing.Point(294, 21);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(431, 60);
             this.lblTitle.TabIndex = 2;
@@ -129,86 +129,75 @@
             this.groupBox1.TabIndex = 118;
             this.groupBox1.TabStop = false;
             // 
-            // txtLastName
+            // label15
             // 
-            this.txtLastName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLastName.inputType = GymSystem.CustomTextBox.InputTypeEnum.TextInput;
-            this.txtLastName.IsRequired = true;
-            this.txtLastName.Location = new System.Drawing.Point(733, 50);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(167, 27);
-            this.txtLastName.TabIndex = 124;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label15.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
+            this.label15.Location = new System.Drawing.Point(191, 366);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(38, 20);
+            this.label15.TabIndex = 130;
+            this.label15.Text = "N/A";
             // 
-            // txtSecondName
+            // label16
             // 
-            this.txtSecondName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecondName.inputType = GymSystem.CustomTextBox.InputTypeEnum.TextInput;
-            this.txtSecondName.IsRequired = false;
-            this.txtSecondName.Location = new System.Drawing.Point(351, 50);
-            this.txtSecondName.Name = "txtSecondName";
-            this.txtSecondName.Size = new System.Drawing.Size(167, 27);
-            this.txtSecondName.TabIndex = 123;
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label16.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
+            this.label16.Location = new System.Drawing.Point(19, 366);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(164, 20);
+            this.label16.TabIndex = 129;
+            this.label16.Text = "Subscription Price :";
             // 
-            // txtPhone
+            // comboBox3
             // 
-            this.txtPhone.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPhone.inputType = GymSystem.CustomTextBox.InputTypeEnum.NumberInput;
-            this.txtPhone.IsRequired = true;
-            this.txtPhone.Location = new System.Drawing.Point(537, 131);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(167, 27);
-            this.txtPhone.TabIndex = 122;
+            this.comboBox3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(537, 210);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(167, 27);
+            this.comboBox3.TabIndex = 128;
             // 
-            // txtAddress
+            // label14
             // 
-            this.txtAddress.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddress.inputType = GymSystem.CustomTextBox.InputTypeEnum.TextInput;
-            this.txtAddress.IsRequired = false;
-            this.txtAddress.Location = new System.Drawing.Point(158, 252);
-            this.txtAddress.Multiline = true;
-            this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(546, 98);
-            this.txtAddress.TabIndex = 121;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label14.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
+            this.label14.Location = new System.Drawing.Point(347, 210);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(154, 20);
+            this.label14.TabIndex = 127;
+            this.label14.Text = "Subscription Plan:";
             // 
-            // txtEmail
+            // comboBox2
             // 
-            this.txtEmail.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.inputType = GymSystem.CustomTextBox.InputTypeEnum.TextInput;
-            this.txtEmail.IsRequired = false;
-            this.txtEmail.Location = new System.Drawing.Point(158, 166);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(167, 27);
-            this.txtEmail.TabIndex = 120;
+            this.comboBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(158, 210);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(167, 27);
+            this.comboBox2.TabIndex = 126;
             // 
-            // txtNationalNo
+            // label13
             // 
-            this.txtNationalNo.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNationalNo.inputType = GymSystem.CustomTextBox.InputTypeEnum.NumberInput;
-            this.txtNationalNo.IsRequired = true;
-            this.txtNationalNo.Location = new System.Drawing.Point(158, 97);
-            this.txtNationalNo.Name = "txtNationalNo";
-            this.txtNationalNo.Size = new System.Drawing.Size(167, 27);
-            this.txtNationalNo.TabIndex = 119;
-            // 
-            // txtThirdName
-            // 
-            this.txtThirdName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThirdName.inputType = GymSystem.CustomTextBox.InputTypeEnum.TextInput;
-            this.txtThirdName.IsRequired = false;
-            this.txtThirdName.Location = new System.Drawing.Point(540, 50);
-            this.txtThirdName.Name = "txtThirdName";
-            this.txtThirdName.Size = new System.Drawing.Size(167, 27);
-            this.txtThirdName.TabIndex = 117;
-            // 
-            // txtFirstName
-            // 
-            this.txtFirstName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirstName.inputType = GymSystem.CustomTextBox.InputTypeEnum.TextInput;
-            this.txtFirstName.IsRequired = true;
-            this.txtFirstName.Location = new System.Drawing.Point(158, 50);
-            this.txtFirstName.Name = "txtFirstName";
-            this.txtFirstName.Size = new System.Drawing.Size(167, 27);
-            this.txtFirstName.TabIndex = 115;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label13.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
+            this.label13.Location = new System.Drawing.Point(19, 210);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(70, 20);
+            this.label13.TabIndex = 125;
+            this.label13.Text = "Trainer:";
             // 
             // comboBox1
             // 
@@ -218,6 +207,19 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(167, 27);
             this.comboBox1.TabIndex = 114;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label11.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
+            this.label11.Location = new System.Drawing.Point(362, 169);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(130, 20);
+            this.label11.TabIndex = 113;
+            this.label11.Text = "Sport / Activity:";
             // 
             // llRemoveImage
             // 
@@ -515,88 +517,86 @@
             this.MemberCodeValue.TabIndex = 122;
             this.MemberCodeValue.Text = "N/A";
             // 
-            // label11
+            // txtLastName
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
-            this.label11.Location = new System.Drawing.Point(362, 169);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(130, 20);
-            this.label11.TabIndex = 113;
-            this.label11.Text = "Sport / Activity:";
+            this.txtLastName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastName.inputType = GymSystem.CustomTextBox.InputTypeEnum.TextInput;
+            this.txtLastName.IsRequired = true;
+            this.txtLastName.Location = new System.Drawing.Point(733, 50);
+            this.txtLastName.Name = "txtLastName";
+            this.txtLastName.Size = new System.Drawing.Size(167, 27);
+            this.txtLastName.TabIndex = 124;
             // 
-            // comboBox2
+            // txtSecondName
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(158, 210);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(167, 27);
-            this.comboBox2.TabIndex = 126;
+            this.txtSecondName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSecondName.inputType = GymSystem.CustomTextBox.InputTypeEnum.TextInput;
+            this.txtSecondName.IsRequired = false;
+            this.txtSecondName.Location = new System.Drawing.Point(351, 50);
+            this.txtSecondName.Name = "txtSecondName";
+            this.txtSecondName.Size = new System.Drawing.Size(167, 27);
+            this.txtSecondName.TabIndex = 123;
             // 
-            // label13
+            // txtPhone
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label13.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
-            this.label13.Location = new System.Drawing.Point(19, 210);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(70, 20);
-            this.label13.TabIndex = 125;
-            this.label13.Text = "Trainer:";
+            this.txtPhone.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhone.inputType = GymSystem.CustomTextBox.InputTypeEnum.NumberInput;
+            this.txtPhone.IsRequired = true;
+            this.txtPhone.Location = new System.Drawing.Point(537, 131);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(167, 27);
+            this.txtPhone.TabIndex = 122;
             // 
-            // comboBox3
+            // txtAddress
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(537, 210);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(167, 27);
-            this.comboBox3.TabIndex = 128;
+            this.txtAddress.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.inputType = GymSystem.CustomTextBox.InputTypeEnum.TextInput;
+            this.txtAddress.IsRequired = false;
+            this.txtAddress.Location = new System.Drawing.Point(158, 252);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(546, 98);
+            this.txtAddress.TabIndex = 121;
             // 
-            // label14
+            // txtEmail
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label14.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
-            this.label14.Location = new System.Drawing.Point(347, 210);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(154, 20);
-            this.label14.TabIndex = 127;
-            this.label14.Text = "Subscription Plan:";
+            this.txtEmail.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.inputType = GymSystem.CustomTextBox.InputTypeEnum.TextInput;
+            this.txtEmail.IsRequired = false;
+            this.txtEmail.Location = new System.Drawing.Point(158, 166);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(167, 27);
+            this.txtEmail.TabIndex = 120;
             // 
-            // label15
+            // txtNationalNo
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label15.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
-            this.label15.Location = new System.Drawing.Point(191, 366);
-            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(38, 20);
-            this.label15.TabIndex = 130;
-            this.label15.Text = "N/A";
+            this.txtNationalNo.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNationalNo.inputType = GymSystem.CustomTextBox.InputTypeEnum.NumberInput;
+            this.txtNationalNo.IsRequired = true;
+            this.txtNationalNo.Location = new System.Drawing.Point(158, 97);
+            this.txtNationalNo.Name = "txtNationalNo";
+            this.txtNationalNo.Size = new System.Drawing.Size(167, 27);
+            this.txtNationalNo.TabIndex = 119;
             // 
-            // label16
+            // txtThirdName
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label16.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
-            this.label16.Location = new System.Drawing.Point(19, 366);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(164, 20);
-            this.label16.TabIndex = 129;
-            this.label16.Text = "Subscription Price :";
+            this.txtThirdName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtThirdName.inputType = GymSystem.CustomTextBox.InputTypeEnum.TextInput;
+            this.txtThirdName.IsRequired = false;
+            this.txtThirdName.Location = new System.Drawing.Point(540, 50);
+            this.txtThirdName.Name = "txtThirdName";
+            this.txtThirdName.Size = new System.Drawing.Size(167, 27);
+            this.txtThirdName.TabIndex = 117;
+            // 
+            // txtFirstName
+            // 
+            this.txtFirstName.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstName.inputType = GymSystem.CustomTextBox.InputTypeEnum.TextInput;
+            this.txtFirstName.IsRequired = true;
+            this.txtFirstName.Location = new System.Drawing.Point(158, 50);
+            this.txtFirstName.Name = "txtFirstName";
+            this.txtFirstName.Size = new System.Drawing.Size(167, 27);
+            this.txtFirstName.TabIndex = 115;
             // 
             // FrmAddUpdateMember
             // 

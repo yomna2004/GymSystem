@@ -44,6 +44,8 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.dgvTrainers = new System.Windows.Forms.DataGridView();
             this.cbIsActive = new System.Windows.Forms.ComboBox();
+            this.deactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrainers)).BeginInit();
             this.SuspendLayout();
@@ -142,9 +144,11 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showPersonInfoToolStripMenuItem,
             this.editInfoToolStripMenuItem,
-            this.deleteToolStripMenuItem});
+            this.deleteToolStripMenuItem,
+            this.deactivateToolStripMenuItem,
+            this.reactivateToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(167, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
             // 
             // showPersonInfoToolStripMenuItem
             // 
@@ -205,6 +209,20 @@
             this.cbIsActive.TabIndex = 94;
             this.cbIsActive.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
             // 
+            // deactivateToolStripMenuItem
+            // 
+            this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
+            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deactivateToolStripMenuItem.Text = "Deactivate";
+            this.deactivateToolStripMenuItem.Click += new System.EventHandler(this.deactivateToolStripMenuItem_Click);
+            // 
+            // reactivateToolStripMenuItem
+            // 
+            this.reactivateToolStripMenuItem.Name = "reactivateToolStripMenuItem";
+            this.reactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reactivateToolStripMenuItem.Text = "Reactivate";
+            this.reactivateToolStripMenuItem.Click += new System.EventHandler(this.reactivateToolStripMenuItem_Click);
+            // 
             // FrmManageTrainers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,5 +265,7 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridView dgvTrainers;
         private System.Windows.Forms.ComboBox cbIsActive;
+        private System.Windows.Forms.ToolStripMenuItem deactivateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reactivateToolStripMenuItem;
     }
 }
