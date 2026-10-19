@@ -57,6 +57,7 @@
             this.mangeMembersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.subscriptionsRenewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memberAttendanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageSubscriptionPlansToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageUsersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -320,7 +321,8 @@
             this.addNewMemberToolStripMenuItem,
             this.mangeMembersToolStripMenuItem,
             this.subscriptionsRenewToolStripMenuItem,
-            this.memberAttendanceToolStripMenuItem});
+            this.memberAttendanceToolStripMenuItem,
+            this.manageSubscriptionPlansToolStripMenuItem});
             this.membersToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.membersToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.membersToolStripMenuItem.Name = "membersToolStripMenuItem";
@@ -332,6 +334,7 @@
             this.addNewMemberToolStripMenuItem.Name = "addNewMemberToolStripMenuItem";
             this.addNewMemberToolStripMenuItem.Size = new System.Drawing.Size(407, 36);
             this.addNewMemberToolStripMenuItem.Text = "Add New Member";
+            this.addNewMemberToolStripMenuItem.Click += new System.EventHandler(this.addNewMemberToolStripMenuItem_Click);
             // 
             // mangeMembersToolStripMenuItem
             // 
@@ -351,6 +354,12 @@
             this.memberAttendanceToolStripMenuItem.Name = "memberAttendanceToolStripMenuItem";
             this.memberAttendanceToolStripMenuItem.Size = new System.Drawing.Size(407, 36);
             this.memberAttendanceToolStripMenuItem.Text = "Member Attendance Details";
+            // 
+            // manageSubscriptionPlansToolStripMenuItem
+            // 
+            this.manageSubscriptionPlansToolStripMenuItem.Name = "manageSubscriptionPlansToolStripMenuItem";
+            this.manageSubscriptionPlansToolStripMenuItem.Size = new System.Drawing.Size(407, 36);
+            this.manageSubscriptionPlansToolStripMenuItem.Text = "Manage Subscription Plans";
             // 
             // usersToolStripMenuItem
             // 
@@ -502,5 +511,6 @@
         private System.Windows.Forms.ToolStripMenuItem currentUserInfroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem signOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageSubscriptionPlansToolStripMenuItem;
     }
 }

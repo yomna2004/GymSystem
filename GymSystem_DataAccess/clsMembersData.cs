@@ -10,15 +10,15 @@ namespace GymSystem_DataAccess
 {
     public class clsMembersData
     {
-        public static bool GetMemberInfoByID(int MemberID, ref int PersonID, ref string MemberCode, ref DateTime JoinDate, ref bool IsActive)
+        public static bool GetMemberInfoByID(int MemberID, ref int PersonID, ref string MemberCode, ref DateTime JoinDate, ref bool IsActive, ref int CreatedByUserID)
         {
             bool isFound = false;
 
             using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
-                string query = @"SELECT PersonID, MemberCode, JoinDate, IsActive 
-                         FROM Members 
-                         WHERE MemberID = @MemberID;";
+                string query = @"SELECT PersonID, MemberCode, JoinDate, IsActive, CreatedByUserID 
+                                 FROM Members 
+                                 WHERE MemberID = @MemberID;";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
@@ -37,6 +37,7 @@ namespace GymSystem_DataAccess
                                 MemberCode = reader["MemberCode"] != DBNull.Value ? reader["MemberCode"].ToString() : string.Empty;
                                 JoinDate = Convert.ToDateTime(reader["JoinDate"]);
                                 IsActive = Convert.ToBoolean(reader["IsActive"]);
+                                CreatedByUserID = (int)reader["CreatedByUserID"];
                             }
                         }
                     }
@@ -50,15 +51,16 @@ namespace GymSystem_DataAccess
 
             return isFound;
         }
-        public static bool GetMemberInfoByPersonID(int PersonID, ref int MemberID, ref string MemberCode, ref DateTime JoinDate, ref bool IsActive)
+
+        public static bool GetMemberInfoByPersonID(int PersonID, ref int MemberID, ref string MemberCode, ref DateTime JoinDate, ref bool IsActive, ref int CreatedByUserID)
         {
             bool isFound = false;
 
             using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
-                string query = @"SELECT MemberID, MemberCode, JoinDate, IsActive 
-                             FROM Members 
-                             WHERE PersonID = @PersonID;";
+                string query = @"SELECT MemberID, MemberCode, JoinDate, IsActive, CreatedByUserID 
+                                 FROM Members 
+                                 WHERE PersonID = @PersonID;";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
@@ -76,6 +78,7 @@ namespace GymSystem_DataAccess
                                 MemberCode = reader["MemberCode"] != DBNull.Value ? reader["MemberCode"].ToString() : string.Empty;
                                 JoinDate = Convert.ToDateTime(reader["JoinDate"]);
                                 IsActive = Convert.ToBoolean(reader["IsActive"]);
+                                CreatedByUserID = (int)reader["CreatedByUserID"];
                             }
                         }
                     }
@@ -90,16 +93,16 @@ namespace GymSystem_DataAccess
             return isFound;
         }
 
-        public static bool GetMemberInfoByFullName(string FullName, ref int MemberID, ref int PersonID, ref string MemberCode, ref DateTime JoinDate, ref bool IsActive)
+        public static bool GetMemberInfoByFullName(string FullName, ref int MemberID, ref int PersonID, ref string MemberCode, ref DateTime JoinDate, ref bool IsActive, ref int CreatedByUserID)
         {
             bool isFound = false;
 
             using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
-                string query = @"SELECT Members.MemberID, Members.PersonID, Members.MemberCode, Members.JoinDate, Members.IsActive 
-                             FROM Members 
-                             INNER JOIN People ON Members.PersonID = People.PersonID
-                             WHERE (People.FirstName + ' ' + ISNULL(People.SecondName, '') + ' ' + ISNULL(People.ThirdName, '') + ' ' + People.LastName) LIKE @FullName;";
+                string query = @"SELECT Members.MemberID, Members.PersonID, Members.MemberCode, Members.JoinDate, Members.IsActive, Members.CreatedByUserID 
+                                 FROM Members 
+                                 INNER JOIN People ON Members.PersonID = People.PersonID
+                                 WHERE (People.FirstName + ' ' + ISNULL(People.SecondName, '') + ' ' + ISNULL(People.ThirdName, '') + ' ' + People.LastName) LIKE @FullName;";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
@@ -118,6 +121,7 @@ namespace GymSystem_DataAccess
                                 MemberCode = reader["MemberCode"] != DBNull.Value ? reader["MemberCode"].ToString() : string.Empty;
                                 JoinDate = Convert.ToDateTime(reader["JoinDate"]);
                                 IsActive = Convert.ToBoolean(reader["IsActive"]);
+                                CreatedByUserID = (int)reader["CreatedByUserID"];
                             }
                         }
                     }
@@ -132,15 +136,15 @@ namespace GymSystem_DataAccess
             return isFound;
         }
 
-        public static int AddNewMember(int PersonID, string MemberCode, DateTime JoinDate, bool IsActive)
+        public static int AddNewMember(int PersonID, string MemberCode, DateTime JoinDate, bool IsActive, int CreatedByUserID)
         {
             int memberID = -1;
 
             using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
-                string query = @"INSERT INTO Members (PersonID, MemberCode, JoinDate, IsActive)
-                             VALUES (@PersonID, @MemberCode, @JoinDate, @IsActive);
-                             SELECT SCOPE_IDENTITY();";
+                string query = @"INSERT INTO Members (PersonID, MemberCode, JoinDate, IsActive, CreatedByUserID)
+                                 VALUES (@PersonID, @MemberCode, @JoinDate, @IsActive, @CreatedByUserID);
+                                 SELECT SCOPE_IDENTITY();";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
@@ -148,6 +152,7 @@ namespace GymSystem_DataAccess
                     command.Parameters.AddWithValue("@MemberCode", string.IsNullOrEmpty(MemberCode) ? (object)DBNull.Value : MemberCode);
                     command.Parameters.AddWithValue("@JoinDate", JoinDate);
                     command.Parameters.AddWithValue("@IsActive", IsActive);
+                    command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
                     try
                     {
@@ -169,18 +174,19 @@ namespace GymSystem_DataAccess
             return memberID;
         }
 
-        public static bool UpdateMember(int MemberID, int PersonID, string MemberCode, DateTime JoinDate, bool IsActive)
+        public static bool UpdateMember(int MemberID, int PersonID, string MemberCode, DateTime JoinDate, bool IsActive, int CreatedByUserID)
         {
             int rowsAffected = 0;
 
             using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 string query = @"UPDATE Members
-                             SET PersonID = @PersonID,
-                                 MemberCode = @MemberCode,
-                                 JoinDate = @JoinDate,
-                                 IsActive = @IsActive
-                             WHERE MemberID = @MemberID;";
+                                 SET PersonID = @PersonID,
+                                     MemberCode = @MemberCode,
+                                     JoinDate = @JoinDate,
+                                     IsActive = @IsActive,
+                                     CreatedByUserID = @CreatedByUserID
+                                 WHERE MemberID = @MemberID;";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
@@ -189,6 +195,7 @@ namespace GymSystem_DataAccess
                     command.Parameters.AddWithValue("@MemberCode", string.IsNullOrEmpty(MemberCode) ? (object)DBNull.Value : MemberCode);
                     command.Parameters.AddWithValue("@JoinDate", JoinDate);
                     command.Parameters.AddWithValue("@IsActive", IsActive);
+                    command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
                     try
                     {
@@ -210,8 +217,7 @@ namespace GymSystem_DataAccess
 
             using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
-                string query = @"DELETE FROM Members 
-                         WHERE MemberID = @MemberID;";
+                string query = @"DELETE FROM Members WHERE MemberID = @MemberID;";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {
@@ -232,6 +238,7 @@ namespace GymSystem_DataAccess
 
             return (rowsAffected > 0);
         }
+
         public static bool IsMemberCodeExist(string memberCode)
         {
             bool isFound = false;
@@ -264,6 +271,7 @@ namespace GymSystem_DataAccess
 
             return isFound;
         }
+
         public static DataTable GetAllMembers()
         {
             DataTable dt = new DataTable();
@@ -271,10 +279,10 @@ namespace GymSystem_DataAccess
             using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 string query = @"SELECT Members.MemberID, Members.PersonID, 
-                                    (People.FirstName + ' ' + ISNULL(People.SecondName, '') + ' ' + People.LastName) AS FullName,
-                                    People.Phone, Members.MemberCode, Members.JoinDate, Members.IsActive
-                             FROM Members 
-                             INNER JOIN People ON Members.PersonID = People.PersonID;";
+                                        (People.FirstName + ' ' + ISNULL(People.SecondName, '') + ' ' + People.LastName) AS FullName,
+                                        People.Phone, Members.MemberCode, Members.JoinDate, Members.IsActive
+                                 FROM Members 
+                                 INNER JOIN People ON Members.PersonID = People.PersonID;";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {

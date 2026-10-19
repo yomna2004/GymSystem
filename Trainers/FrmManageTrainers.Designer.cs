@@ -41,11 +41,11 @@
             this.showPersonInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClose = new System.Windows.Forms.Button();
             this.dgvTrainers = new System.Windows.Forms.DataGridView();
             this.cbIsActive = new System.Windows.Forms.ComboBox();
-            this.deactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrainers)).BeginInit();
             this.SuspendLayout();
@@ -148,7 +148,7 @@
             this.deactivateToolStripMenuItem,
             this.reactivateToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(167, 114);
             // 
             // showPersonInfoToolStripMenuItem
             // 
@@ -170,6 +170,20 @@
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // deactivateToolStripMenuItem
+            // 
+            this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
+            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.deactivateToolStripMenuItem.Text = "Deactivate";
+            this.deactivateToolStripMenuItem.Click += new System.EventHandler(this.deactivateToolStripMenuItem_Click);
+            // 
+            // reactivateToolStripMenuItem
+            // 
+            this.reactivateToolStripMenuItem.Name = "reactivateToolStripMenuItem";
+            this.reactivateToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.reactivateToolStripMenuItem.Text = "Reactivate";
+            this.reactivateToolStripMenuItem.Click += new System.EventHandler(this.reactivateToolStripMenuItem_Click);
             // 
             // btnClose
             // 
@@ -208,20 +222,6 @@
             this.cbIsActive.Size = new System.Drawing.Size(73, 21);
             this.cbIsActive.TabIndex = 94;
             this.cbIsActive.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
-            // 
-            // deactivateToolStripMenuItem
-            // 
-            this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
-            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deactivateToolStripMenuItem.Text = "Deactivate";
-            this.deactivateToolStripMenuItem.Click += new System.EventHandler(this.deactivateToolStripMenuItem_Click);
-            // 
-            // reactivateToolStripMenuItem
-            // 
-            this.reactivateToolStripMenuItem.Name = "reactivateToolStripMenuItem";
-            this.reactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reactivateToolStripMenuItem.Text = "Reactivate";
-            this.reactivateToolStripMenuItem.Click += new System.EventHandler(this.reactivateToolStripMenuItem_Click);
             // 
             // FrmManageTrainers
             // 

@@ -1,4 +1,5 @@
-﻿using GymSystem.People;
+﻿using GymSystem.Members;
+using GymSystem.People;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -121,6 +122,12 @@ namespace GymSystem
         private void staffAttendenceToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmTrainersAttendence frm = new frmTrainersAttendence();
+            frm.ShowDialog();
+        }
+
+        private void addNewMemberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddMember frm = new FrmAddMember();
             frm.ShowDialog();
         }
     }

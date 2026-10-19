@@ -14,23 +14,26 @@ namespace GymSystem_Business
 
         public int MemberID { get; set; }
         public int PersonID { get; set; }
-        public clsPerson PersonInfo;
+        public clsPerson PersonInfo { get; set; }
         public string MemberCode { get; set; }
         public DateTime JoinDate { get; set; }
         public bool IsActive { get; set; }
+        public int CreatedByUserID { get; set; }
 
         public clsMember()
         {
             this.MemberID = -1;
             this.PersonID = -1;
+            this.PersonInfo = new clsPerson(); // لضمان عدم حدوث NullReferenceException
             this.MemberCode = string.Empty;
             this.JoinDate = DateTime.Now;
             this.IsActive = true;
+            this.CreatedByUserID = -1;
 
             Mode = enMode.AddNew;
         }
 
-        private clsMember(int memberID, int personID, string memberCode, DateTime joinDate, bool isActive)
+        private clsMember(int memberID, int personID, string memberCode, DateTime joinDate, bool isActive, int createdByUserID)
         {
             this.MemberID = memberID;
             this.PersonID = personID;
@@ -38,6 +41,7 @@ namespace GymSystem_Business
             this.MemberCode = memberCode;
             this.JoinDate = joinDate;
             this.IsActive = isActive;
+            this.CreatedByUserID = createdByUserID;
 
             Mode = enMode.Update;
         }
@@ -56,7 +60,7 @@ namespace GymSystem_Business
             {
                 newCode = random.Next(1000, 10000).ToString();
             }
-            while (IsMemberCodeExist(newCode)); 
+            while (IsMemberCodeExist(newCode));
 
             return newCode;
         }
@@ -68,13 +72,13 @@ namespace GymSystem_Business
                 this.MemberCode = _GenerateUniqueMemberCode();
             }
 
-            this.MemberID = clsMembersData.AddNewMember(this.PersonID, this.MemberCode, this.JoinDate, this.IsActive);
+            this.MemberID = clsMembersData.AddNewMember(this.PersonID, this.MemberCode, this.JoinDate, this.IsActive, this.CreatedByUserID);
             return (this.MemberID != -1);
         }
 
         private bool _UpdateMember()
         {
-            return clsMembersData.UpdateMember(this.MemberID, this.PersonID, this.MemberCode, this.JoinDate, this.IsActive);
+            return clsMembersData.UpdateMember(this.MemberID, this.PersonID, this.MemberCode, this.JoinDate, this.IsActive, this.CreatedByUserID);
         }
 
         public static clsMember FindByID(int memberID)
@@ -83,10 +87,11 @@ namespace GymSystem_Business
             string memberCode = string.Empty;
             DateTime joinDate = DateTime.Now;
             bool isActive = false;
+            int createdByUserID = -1;
 
-            if (clsMembersData.GetMemberInfoByID(memberID, ref personID, ref memberCode, ref joinDate, ref isActive))
+            if (clsMembersData.GetMemberInfoByID(memberID, ref personID, ref memberCode, ref joinDate, ref isActive, ref createdByUserID))
             {
-                return new clsMember(memberID, personID, memberCode, joinDate, isActive);
+                return new clsMember(memberID, personID, memberCode, joinDate, isActive, createdByUserID);
             }
             else
             {
@@ -100,10 +105,11 @@ namespace GymSystem_Business
             string memberCode = string.Empty;
             DateTime joinDate = DateTime.Now;
             bool isActive = false;
+            int createdByUserID = -1;
 
-            if (clsMembersData.GetMemberInfoByPersonID(personID, ref memberID, ref memberCode, ref joinDate, ref isActive))
+            if (clsMembersData.GetMemberInfoByPersonID(personID, ref memberID, ref memberCode, ref joinDate, ref isActive, ref createdByUserID))
             {
-                return new clsMember(memberID, personID, memberCode, joinDate, isActive);
+                return new clsMember(memberID, personID, memberCode, joinDate, isActive, createdByUserID);
             }
             else
             {
@@ -118,10 +124,11 @@ namespace GymSystem_Business
             string memberCode = string.Empty;
             DateTime joinDate = DateTime.Now;
             bool isActive = false;
+            int createdByUserID = -1;
 
-            if (clsMembersData.GetMemberInfoByFullName(fullName, ref memberID, ref personID, ref memberCode, ref joinDate, ref isActive))
+            if (clsMembersData.GetMemberInfoByFullName(fullName, ref memberID, ref personID, ref memberCode, ref joinDate, ref isActive, ref createdByUserID))
             {
-                return new clsMember(memberID, personID, memberCode, joinDate, isActive);
+                return new clsMember(memberID, personID, memberCode, joinDate, isActive, createdByUserID);
             }
             else
             {
