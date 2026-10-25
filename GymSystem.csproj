@@ -106,16 +106,22 @@
     <Compile Include="Members\FrmUpdateMember.Designer.cs">
       <DependentUpon>FrmUpdateMember.cs</DependentUpon>
     </Compile>
-    <Compile Include="Trainers\controls\ctrlPersonCard.cs">
+    <Compile Include="People\FrmAddUpdatePerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\FrmAddUpdatePerson.Designer.cs">
+      <DependentUpon>FrmAddUpdatePerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\controls\ctrlPersonCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Trainers\controls\ctrlPersonCard.Designer.cs">
+    <Compile Include="People\controls\ctrlPersonCard.Designer.cs">
       <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Trainers\controls\ctrlPersonCardWithFilter.cs">
+    <Compile Include="People\controls\ctrlPersonCardWithFilter.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Trainers\controls\ctrlPersonCardWithFilter.Designer.cs">
+    <Compile Include="People\controls\ctrlPersonCardWithFilter.Designer.cs">
       <DependentUpon>ctrlPersonCardWithFilter.cs</DependentUpon>
     </Compile>
     <Compile Include="Trainers\FrmAddUpdateTrainer.cs">
@@ -153,10 +159,19 @@
     <EmbeddedResource Include="Members\FrmAddMember.resx">
       <DependentUpon>FrmAddMember.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Trainers\controls\ctrlPersonCard.resx">
+    <EmbeddedResource Include="Members\FrmManageMembers.resx">
+      <DependentUpon>FrmManageMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Members\FrmUpdateMember.resx">
+      <DependentUpon>FrmUpdateMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\FrmAddUpdatePerson.resx">
+      <DependentUpon>FrmAddUpdatePerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\controls\ctrlPersonCard.resx">
       <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Trainers\controls\ctrlPersonCardWithFilter.resx">
+    <EmbeddedResource Include="People\controls\ctrlPersonCardWithFilter.resx">
       <DependentUpon>ctrlPersonCardWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Trainers\FrmAddUpdateTrainer.resx">
@@ -248,6 +263,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Add Person 40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Trainers\controls\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

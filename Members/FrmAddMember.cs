@@ -8,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -308,8 +309,9 @@ namespace GymSystem.Members
 
             if (subscription.Save())
             {
-                MessageBox.Show("Member and Subscription Saved Successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lblMemberID.Text = _Member.MemberID.ToString();
+                MessageBox.Show($"Member and Subscription Saved Successfully.\nMember ID: {_Member.MemberID}\nMember Code: {_Member.MemberCode}",
+                                        "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information); lblMemberID.Text = _Member.MemberID.ToString();
+                lblMemberCode.Text = _Member.MemberCode.ToString();
                 this.Close();
             }
             else

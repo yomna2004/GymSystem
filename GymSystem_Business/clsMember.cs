@@ -24,7 +24,7 @@ namespace GymSystem_Business
         {
             this.MemberID = -1;
             this.PersonID = -1;
-            this.PersonInfo = new clsPerson(); // لضمان عدم حدوث NullReferenceException
+            this.PersonInfo = new clsPerson(); 
             this.MemberCode = string.Empty;
             this.JoinDate = DateTime.Now;
             this.IsActive = true;

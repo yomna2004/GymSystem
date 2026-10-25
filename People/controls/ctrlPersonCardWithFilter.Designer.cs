@@ -29,27 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.ctrlPersonCard1 = new GymSystem.People.controls.ctrlPersonCard();
             this.gbFilters = new System.Windows.Forms.GroupBox();
+            this.AddPersonbtn = new System.Windows.Forms.Button();
+            this.btnFind = new System.Windows.Forms.Button();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnFind = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ctrlPersonCard1 = new GymSystem.People.controls.ctrlPersonCard();
             this.gbFilters.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.BackColor = System.Drawing.Color.MidnightBlue;
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(0, 90);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(837, 303);
-            this.ctrlPersonCard1.TabIndex = 0;
-            // 
             // gbFilters
             // 
+            this.gbFilters.Controls.Add(this.AddPersonbtn);
             this.gbFilters.Controls.Add(this.btnFind);
             this.gbFilters.Controls.Add(this.cbFilterBy);
             this.gbFilters.Controls.Add(this.txtFilterValue);
@@ -62,13 +56,35 @@
             this.gbFilters.TabStop = false;
             this.gbFilters.Text = "Filter";
             // 
+            // AddPersonbtn
+            // 
+            this.AddPersonbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddPersonbtn.Image = global::GymSystem.Properties.Resources.Add_Person_40;
+            this.AddPersonbtn.Location = new System.Drawing.Point(696, 14);
+            this.AddPersonbtn.Name = "AddPersonbtn";
+            this.AddPersonbtn.Size = new System.Drawing.Size(56, 40);
+            this.AddPersonbtn.TabIndex = 20;
+            this.AddPersonbtn.UseVisualStyleBackColor = true;
+            this.AddPersonbtn.Click += new System.EventHandler(this.AddPersonbtn_Click);
+            // 
+            // btnFind
+            // 
+            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFind.Image = global::GymSystem.Properties.Resources.SearchPerson;
+            this.btnFind.Location = new System.Drawing.Point(621, 14);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(56, 40);
+            this.btnFind.TabIndex = 18;
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
             // cbFilterBy
             // 
             this.cbFilterBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.Items.AddRange(new object[] {
-            "National No.",
-            "Person ID"});
+            "PersonID",
+            "National No."});
             this.cbFilterBy.Location = new System.Drawing.Point(96, 25);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(210, 21);
@@ -96,20 +112,17 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Find By:";
             // 
-            // btnFind
-            // 
-            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFind.Image = global::GymSystem.Properties.Resources.SearchPerson;
-            this.btnFind.Location = new System.Drawing.Point(621, 14);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(56, 40);
-            this.btnFind.TabIndex = 18;
-            this.btnFind.UseVisualStyleBackColor = true;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.MidnightBlue;
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(0, 90);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(837, 303);
+            this.ctrlPersonCard1.TabIndex = 0;
             // 
             // ctrlPersonCardWithFilter
             // 
@@ -137,5 +150,6 @@
         private System.Windows.Forms.TextBox txtFilterValue;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button AddPersonbtn;
     }
 }

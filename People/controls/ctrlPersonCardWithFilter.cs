@@ -54,16 +54,36 @@ namespace GymSystem.People.controls
         }
         public void FindNow()
         {
-            switch(cbFilterBy.Text)
+            if (string.IsNullOrWhiteSpace(txtFilterValue.Text))
+            {
+                MessageBox.Show("Please enter a value to search.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            switch (cbFilterBy.Text.Trim())
             {
                 case "PersonID":
-                    ctrlPersonCard1.LoadPersonInfo(int.Parse(txtFilterValue.Text)); break;
+                    if (int.TryParse(txtFilterValue.Text.Trim(), out int personID))
+                    {
+                        ctrlPersonCard1.LoadPersonInfo(personID);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please enter a valid numeric Person ID.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    break;
+
                 case "National No.":
-                    ctrlPersonCard1.LoadPersonInfo(txtFilterValue.Text); break;
+                    ctrlPersonCard1.LoadPersonInfo(txtFilterValue.Text.Trim());
+                    break;
+
                 default:
+                    MessageBox.Show("Please select a valid filter.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
             }
-            if(OnPersonSelected != null&& FilterEnable)
+
+            if (OnPersonSelected != null && FilterEnable)
             {
                 OnPersonSelected(ctrlPersonCard1.PersonID);
             }
@@ -101,33 +121,37 @@ namespace GymSystem.People.controls
             }
             else
             {
-                //e.Cancel = false;
                 errorProvider1.SetError(txtFilterValue, null);
             }
         }
-        private void DataBackEvent(object sender, int PersonID)
-        {
-            // Handle the data received
-
-            cbFilterBy.SelectedIndex = 1;
-            txtFilterValue.Text = PersonID.ToString();
-            ctrlPersonCard1.LoadPersonInfo(PersonID);
-        }
+        
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Check if the pressed key is Enter (character code 13)
             if (e.KeyChar == (char)13)
             {
 
                 btnFind.PerformClick();
             }
 
-            //this will allow only digits if person id is selected
             if (cbFilterBy.Text == "Person ID")
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
 
 
 
+        }
+
+        private void AddPersonbtn_Click(object sender, EventArgs e)
+        {
+           AddUpdatePerson frm = new AddUpdatePerson();
+            frm.DataBack += DataBackEvent;
+            frm.ShowDialog();
+        }
+        private void DataBackEvent(object sender, int PersonID)
+        {
+
+            cbFilterBy.SelectedIndex = 0;
+            txtFilterValue.Text = PersonID.ToString();
+            ctrlPersonCard1.LoadPersonInfo(PersonID);
         }
     }
 }

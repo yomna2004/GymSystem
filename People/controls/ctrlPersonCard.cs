@@ -27,6 +27,7 @@ namespace GymSystem.People.controls
         public void LoadPersonInfo(int PersonID)
         {
             _Person = clsPerson.Find(PersonID);
+            _PersonID = _Person.PersonID;
             if(_Person == null)
             {
                 ResetPersonInfo();
@@ -39,6 +40,7 @@ namespace GymSystem.People.controls
         public void LoadPersonInfo(string NationalNo)
         {
             _Person = clsPerson.Find(NationalNo);
+            _PersonID = _Person.PersonID;
             if (_Person == null)
             {
                 ResetPersonInfo();
@@ -105,9 +107,14 @@ namespace GymSystem.People.controls
 
         private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmAddUpdateTrainer frm = new FrmAddUpdateTrainer(_PersonID);
+            AddUpdatePerson frm = new AddUpdatePerson(_PersonID);
             frm.ShowDialog();
             LoadPersonInfo(_PersonID);
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

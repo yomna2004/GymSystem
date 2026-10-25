@@ -28,12 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.SuspendLayout();
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblTitle.Location = new System.Drawing.Point(466, 27);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(431, 60);
+            this.lblTitle.TabIndex = 3;
+            this.lblTitle.Text = "Manage Members";
+            // 
+            // FrmManageMembers
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
+            this.ClientSize = new System.Drawing.Size(1389, 798);
+            this.Controls.Add(this.lblTitle);
+            this.Name = "FrmManageMembers";
             this.Text = "FrmManageMembers";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTitle;
     }
 }

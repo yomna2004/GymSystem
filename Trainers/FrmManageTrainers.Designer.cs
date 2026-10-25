@@ -63,7 +63,7 @@
             // 
             // AddTrainerbtn
             // 
-            this.AddTrainerbtn.BackgroundImage = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
+            this.AddTrainerbtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddTrainerbtn.BackgroundImage")));
             this.AddTrainerbtn.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.AddTrainerbtn.HoverState.ImageSize = new System.Drawing.Size(64, 64);
             this.AddTrainerbtn.Image = ((System.Drawing.Image)(resources.GetObject("AddTrainerbtn.Image")));
@@ -109,7 +109,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.Location = new System.Drawing.Point(14, 176);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 20);
@@ -120,7 +120,7 @@
             // 
             this.lblRecordsCount.AutoSize = true;
             this.lblRecordsCount.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblRecordsCount.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
+            this.lblRecordsCount.Image = ((System.Drawing.Image)(resources.GetObject("lblRecordsCount.Image")));
             this.lblRecordsCount.Location = new System.Drawing.Point(126, 728);
             this.lblRecordsCount.Name = "lblRecordsCount";
             this.lblRecordsCount.Size = new System.Drawing.Size(17, 13);
@@ -132,7 +132,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
+            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
             this.label2.Location = new System.Drawing.Point(14, 723);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 20);
@@ -227,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1512, 754);
             this.Controls.Add(this.dgvTrainers);
             this.Controls.Add(this.cbIsActive);
