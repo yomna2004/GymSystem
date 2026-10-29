@@ -27,13 +27,13 @@ namespace GymSystem.People.controls
         public void LoadPersonInfo(int PersonID)
         {
             _Person = clsPerson.Find(PersonID);
-            _PersonID = _Person.PersonID;
             if(_Person == null)
             {
                 ResetPersonInfo();
                 MessageBox.Show("No Person PersonID. = " + PersonID.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            _PersonID = _Person.PersonID;
             _FillPersonInfo();
         }
 

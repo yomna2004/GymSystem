@@ -17,12 +17,10 @@ namespace GymSystem.Members
 {
     public partial class FrmAddMember : Form
     {
-        public enum enGender { Male = 0, Female = 1 };
-
         private clsMember _Member;
         public FrmAddMember()
         {
-            InitializeComponent();    
+            InitializeComponent(); 
         }
 
         
@@ -96,67 +94,13 @@ namespace GymSystem.Members
                 SubscriptionPlanCB.SelectedIndex = 0;
         }
 
-        private void _ResetDefaultValues()
-        {
-
-            if (rbMale.Checked)
-                pbPersonImage.Image = Resources.Male_512;
-            else
-                pbPersonImage.Image = Resources.Female_512;
-
-            llRemoveImage.Visible = (pbPersonImage.ImageLocation != null);
-            dtpDateOfBirth.MaxDate = DateTime.Now.AddYears(-5);
-            dtpDateOfBirth.Value = dtpDateOfBirth.MaxDate;
-
-            txtFirstName.Text = "";
-            txtSecondName.Text = "";
-            txtThirdName.Text = "";
-            txtLastName.Text = "";
-            txtEmail.Text = "";
-            txtNationalNo.Text = "";
-            txtAddress.Text = "";
-            txtPhone.Text = "";
-            rbMale.Checked = true;
-        }
-
-        
-
-        private void llSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
-            openFileDialog1.FilterIndex = 1;
-            openFileDialog1.RestoreDirectory = true;
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string selectedFilePath = openFileDialog1.FileName;
-                pbPersonImage.Load(selectedFilePath);
-                llRemoveImage.Visible = true;
-            }
-        }
-
-        private void llRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            pbPersonImage.ImageLocation = null;
-
-
-
-            if (rbMale.Checked)
-                pbPersonImage.Image = Resources.Male_512;
-            else
-                pbPersonImage.Image = Resources.Female_512;
-
-            llRemoveImage.Visible = false;
-        }
-
-        
-
         private void FrmAddUpdateMember_Load(object sender, EventArgs e)
         {
             _FillSubscriptionPlanComboBox();
             _FillSportsComboBox();
-           _ResetDefaultValues();
+           
         }
+
 
         private void SportCB_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -165,10 +109,10 @@ namespace GymSystem.Members
 
         private void SubscriptionPlanCB_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (SubscriptionPlanCB.SelectedValue == null )
+            if (SubscriptionPlanCB.SelectedValue == null)
                 return;
             string PlanName = SubscriptionPlanCB.Text.Trim();
-            clsSubscriptionPlans subscriptionPlan = clsSubscriptionPlans.Find(PlanName); 
+            clsSubscriptionPlans subscriptionPlan = clsSubscriptionPlans.Find(PlanName);
 
             if (subscriptionPlan != null)
             {
@@ -194,36 +138,7 @@ namespace GymSystem.Members
         {
             this.Close();
         }
-        private bool _HandlePersonImage()
-        {
-            if (_Member.PersonInfo != null && _Member.PersonInfo.ImagePath != pbPersonImage.ImageLocation)
-            {
-                if (!string.IsNullOrEmpty(_Member.PersonInfo.ImagePath))
-                {
-                    try
-                    {
-                        File.Delete(_Member.PersonInfo.ImagePath);
-                    }
-                    catch { }
-                }
-            }
 
-            if (pbPersonImage.ImageLocation != null)
-            {
-                string SourceImageFile = pbPersonImage.ImageLocation.ToString();
-                if (util.CopyImageToProjectImagesFolder(ref SourceImageFile))
-                {
-                    pbPersonImage.ImageLocation = SourceImageFile;
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show("Error Copying Image File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-            }
-            return true;
-        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!this.ValidateChildren())
@@ -242,27 +157,15 @@ namespace GymSystem.Members
             {
                 _Member.PersonInfo = new clsPerson();
             }
-
-            if (!_HandlePersonImage())
+            int PersonID = ctrlPersonCardWithFilter1.PersonID;
+            if (PersonID != -1)
             {
-                return;
+                _Member.PersonID = PersonID;
             }
-
-            _Member.PersonInfo.FirstName = txtFirstName.Text.Trim();
-            _Member.PersonInfo.SecondName = txtSecondName.Text.Trim();
-            _Member.PersonInfo.ThirdName = txtThirdName.Text.Trim();
-            _Member.PersonInfo.LastName = txtLastName.Text.Trim();
-            _Member.PersonInfo.Email = txtEmail.Text.Trim();
-            _Member.PersonInfo.NationalNo = txtNationalNo.Text.Trim();
-            _Member.PersonInfo.Address = txtAddress.Text.Trim();
-            _Member.PersonInfo.Phone = txtPhone.Text.Trim();
-            _Member.PersonInfo.Gender = rbMale.Checked ? (byte)enGender.Male : (byte)enGender.Female;
-            _Member.PersonInfo.DateOfBirth = dtpDateOfBirth.Value;
-            _Member.PersonInfo.ImagePath = pbPersonImage.ImageLocation ?? "";
 
             _Member.JoinDate = DateTime.Now;
             _Member.IsActive = true;
-            _Member.CreatedByUserID = clsGlobal.CurrentUser.UserID; 
+            _Member.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
             if (!_Member.PersonInfo.Save())
             {
@@ -283,7 +186,7 @@ namespace GymSystem.Members
             if (SubscriptionPlanCB.SelectedValue != null)
                 subscription.PlanID = (int)SubscriptionPlanCB.SelectedValue;
 
-            subscription.MemberID = _Member.MemberID; 
+            subscription.MemberID = _Member.MemberID;
 
             if (TrainerCB.SelectedValue != null)
                 subscription.TrainerID = (int)TrainerCB.SelectedValue;
@@ -312,45 +215,13 @@ namespace GymSystem.Members
                 MessageBox.Show($"Member and Subscription Saved Successfully.\nMember ID: {_Member.MemberID}\nMember Code: {_Member.MemberCode}",
                                         "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information); lblMemberID.Text = _Member.MemberID.ToString();
                 lblMemberCode.Text = _Member.MemberCode.ToString();
+                lblMemberID.Text = _Member.MemberID.ToString();
                 this.Close();
             }
             else
             {
                 MessageBox.Show("Member was saved successfully, but the Subscription failed to save.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        } 
-        private void RequiredtxtBoxVaildating(object sender, CancelEventArgs e)
-        {
-            CustomTextBox temp = ((CustomTextBox)sender);
-            if (!temp.IsVaild())
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(temp, "This field is required!");
-            }
-            else
-            {
-                errorProvider1.SetError(temp, "");
-            }
-        }
-
-        private void txtFirstName_Validating(object sender, CancelEventArgs e)
-        {
-            RequiredtxtBoxVaildating(sender, e);
-        }
-
-        private void txtLastName_Validating(object sender, CancelEventArgs e)
-        {
-            RequiredtxtBoxVaildating(sender, e);
-        }
-
-        private void txtNationalNo_Validating(object sender, CancelEventArgs e)
-        {
-            RequiredtxtBoxVaildating(sender, e);
-        }
-
-        private void txtPhone_Validating(object sender, CancelEventArgs e)
-        {
-            RequiredtxtBoxVaildating(sender, e);
         }
     }
 }
