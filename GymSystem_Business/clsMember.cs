@@ -158,11 +158,14 @@ namespace GymSystem_Business
             return false;
         }
 
-        public static bool DeleteMember(int memberID)
+        public static bool DeactivateMember(int memberID)
         {
-            return clsMembersData.DeleteMember(memberID);
+            return clsMembersData.UpdateMemberStatus(memberID, false);
         }
-
+        public static bool ReactivateMember(int memberID)
+        {
+            return clsMembersData.UpdateMemberStatus(memberID, true);
+        }
         public static DataTable GetAllMembers()
         {
             return clsMembersData.GetAllMembers();

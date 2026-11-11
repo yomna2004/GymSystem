@@ -211,32 +211,38 @@ namespace GymSystem_DataAccess
             return (rowsAffected > 0);
         }
 
-        public static bool DeleteMember(int MemberID)
+        public static bool UpdateMemberStatus(int memberID, bool isActive)
         {
-            int rowsAffected = 0;
+            bool isUpdated = false;
 
-            using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
-                string query = @"DELETE FROM Members WHERE MemberID = @MemberID;";
+                string query = @"UPDATE Members 
+                         SET IsActive = @IsActive 
+                         WHERE MemberID = @MemberID";
 
-                using (SqlCommand command = new SqlCommand(query, conn))
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@MemberID", MemberID);
+                    command.Parameters.AddWithValue("@MemberID", memberID);
+                    command.Parameters.AddWithValue("@IsActive", isActive);
 
                     try
                     {
-                        conn.Open();
-                        rowsAffected = command.ExecuteNonQuery();
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            isUpdated = true;
+                        }
                     }
                     catch (Exception ex)
                     {
-                        LoggerHelperData.LogError("clsMembersData.DeleteMember", ex);
-                        rowsAffected = 0;
+                        LoggerHelperData.LogError("clsMemberData.UpdateMemberStatus", ex);
                     }
                 }
             }
 
-            return (rowsAffected > 0);
+            return isUpdated;
         }
 
         public static bool IsMemberCodeExist(string memberCode)
@@ -278,11 +284,7 @@ namespace GymSystem_DataAccess
 
             using (SqlConnection conn = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
-                string query = @"SELECT Members.MemberID, Members.PersonID, 
-                                        (People.FirstName + ' ' + ISNULL(People.SecondName, '') + ' ' + People.LastName) AS FullName,
-                                        People.Phone, Members.MemberCode, Members.JoinDate, Members.IsActive
-                                 FROM Members 
-                                 INNER JOIN People ON Members.PersonID = People.PersonID;";
+                string query = @"SELECT * FROM MembersView ORDER BY FullName";
 
                 using (SqlCommand command = new SqlCommand(query, conn))
                 {

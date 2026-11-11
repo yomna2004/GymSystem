@@ -104,7 +104,8 @@ namespace GymSystem
 
         private void mangeMembersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            FrmManageMembers frm = new FrmManageMembers();
+            frm.ShowDialog();
         }
 
         private void addNewTrainerToolStripMenuItem_Click(object sender, EventArgs e)

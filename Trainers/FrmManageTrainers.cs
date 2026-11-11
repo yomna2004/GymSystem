@@ -61,17 +61,17 @@ namespace GymSystem.People
             string FilterColumn = "";
             switch(cbFilterBy.Text)
             {
-                case "Trainer ID":
-                    FilterColumn = "Trainer ID";
+                case "TrainerID":
+                    FilterColumn = "TrainerID";
                     break;
                 case "PersonID":
                     FilterColumn = "PersonID";
                     break;
-                case "Specialization Name":
-                    FilterColumn = "Specialization Name";
+                case "SpecializationName":
+                    FilterColumn = "SpecializationName";
                     break;
-                case "Full Name":
-                    FilterColumn = "Full Name";
+                case "FullName":
+                    FilterColumn = "FullName";
                     break;
             }
             if (txtFilterValue.Text.Trim() == "" || FilterColumn == "None")
@@ -80,7 +80,7 @@ namespace GymSystem.People
                 lblRecordsCount.Text = _dtTrainers.DefaultView.Count.ToString();
                 return;
             }
-            if(FilterColumn != "Specialization Name" && FilterColumn != "Full Name")
+            if(FilterColumn != "SpecializationName" && FilterColumn != "FullName")
             {
                 _dtTrainers.DefaultView.RowFilter = string.Format("[{0}] = {1}",FilterColumn,txtFilterValue.Text);
             }
@@ -100,7 +100,7 @@ namespace GymSystem.People
                 txtFilterValue.Enabled = false;
                 cbIsActive.Visible = false;
             }
-            if(cbFilterBy.Text == "Is Active")
+            if(cbFilterBy.Text == "IsActive")
             {
                 cbIsActive.Visible = true;
                 txtFilterValue.Visible = false;
@@ -113,7 +113,7 @@ namespace GymSystem.People
 
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (cbFilterBy.Text == "Trainer ID" || cbFilterBy.Text == "PersonID")
+            if (cbFilterBy.Text == "TrainerID" || cbFilterBy.Text == "PersonID")
             {
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             }

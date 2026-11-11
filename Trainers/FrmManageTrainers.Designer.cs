@@ -82,11 +82,11 @@
             this.cbFilterBy.FormattingEnabled = true;
             this.cbFilterBy.Items.AddRange(new object[] {
             "None",
-            "Trainer ID",
+            "TrainerID",
             "PersonID",
-            "Specialization Name",
-            "Is Active",
-            "Full Name"});
+            "SpecializationName",
+            "IsActive",
+            "FullName"});
             this.cbFilterBy.Location = new System.Drawing.Point(116, 175);
             this.cbFilterBy.Name = "cbFilterBy";
             this.cbFilterBy.Size = new System.Drawing.Size(210, 21);
@@ -148,40 +148,40 @@
             this.deactivateToolStripMenuItem,
             this.reactivateToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(167, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
             // 
             // showPersonInfoToolStripMenuItem
             // 
             this.showPersonInfoToolStripMenuItem.Name = "showPersonInfoToolStripMenuItem";
-            this.showPersonInfoToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.showPersonInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showPersonInfoToolStripMenuItem.Text = "Show Person Info";
             this.showPersonInfoToolStripMenuItem.Click += new System.EventHandler(this.showPersonInfoToolStripMenuItem_Click);
             // 
             // editInfoToolStripMenuItem
             // 
             this.editInfoToolStripMenuItem.Name = "editInfoToolStripMenuItem";
-            this.editInfoToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.editInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editInfoToolStripMenuItem.Text = "Edit Info";
             this.editInfoToolStripMenuItem.Click += new System.EventHandler(this.editInfoToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // deactivateToolStripMenuItem
             // 
             this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
-            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deactivateToolStripMenuItem.Text = "Deactivate";
             this.deactivateToolStripMenuItem.Click += new System.EventHandler(this.deactivateToolStripMenuItem_Click);
             // 
             // reactivateToolStripMenuItem
             // 
             this.reactivateToolStripMenuItem.Name = "reactivateToolStripMenuItem";
-            this.reactivateToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.reactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reactivateToolStripMenuItem.Text = "Reactivate";
             this.reactivateToolStripMenuItem.Click += new System.EventHandler(this.reactivateToolStripMenuItem_Click);
             // 
@@ -205,7 +205,7 @@
             this.dgvTrainers.BackgroundColor = System.Drawing.Color.Navy;
             this.dgvTrainers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTrainers.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvTrainers.Location = new System.Drawing.Point(12, 235);
+            this.dgvTrainers.Location = new System.Drawing.Point(12, 231);
             this.dgvTrainers.Name = "dgvTrainers";
             this.dgvTrainers.Size = new System.Drawing.Size(1459, 462);
             this.dgvTrainers.TabIndex = 96;
