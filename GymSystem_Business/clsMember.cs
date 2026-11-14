@@ -20,6 +20,7 @@ namespace GymSystem_Business
         public bool IsActive { get; set; }
         public int CreatedByUserID { get; set; }
 
+       
         public clsMember()
         {
             this.MemberID = -1;
@@ -74,6 +75,91 @@ namespace GymSystem_Business
 
             this.MemberID = clsMembersData.AddNewMember(this.PersonID, this.MemberCode, this.JoinDate, this.IsActive, this.CreatedByUserID);
             return (this.MemberID != -1);
+        }
+        public int SaveComplete(int CreatedByUserID, int PlanID, int TrainerID, int SportID, int AmountPaid)
+        {
+            int MemberID = -1;
+            int SubscriptionID = -1;
+            int PaymentID = -1;
+
+           
+            clsMember member = clsMember.FindByPersonID(this.PersonID);
+
+            if (member == null)
+            {
+              
+                member = new clsMember();
+                member.PersonID = this.PersonID;
+                member.CreatedByUserID = CreatedByUserID;
+                member.MemberCode = this.MemberCode;
+                member.JoinDate = DateTime.Now;
+                member.IsActive = true;
+
+                if (member.Save())
+                {
+                    MemberID = member.MemberID;
+                    this.MemberCode = member.MemberCode;
+                    this.MemberID = member.MemberID;
+                }
+                else
+                {
+                    return -1; 
+                }
+            }
+            else
+            {
+             
+                MemberID = member.MemberID;
+                this.MemberCode = member.MemberCode;
+                this.MemberID = member.MemberID;
+            }
+
+           
+            clsSubscriptions subscription = new clsSubscriptions();
+            subscription.MemberID = MemberID; 
+            subscription.PlanID = PlanID;
+            subscription.TrainerID = TrainerID; 
+            subscription.SportID = SportID;
+            subscription.StartDate = DateTime.Now;
+
+            clsSubscriptionPlans selectedPlan = clsSubscriptionPlans.Find(subscription.PlanID);
+            if (selectedPlan != null && selectedPlan.DurationInMonths.HasValue)
+            {
+                subscription.EndDate = DateTime.Now.AddMonths(selectedPlan.DurationInMonths.Value);
+            }
+            else
+            {
+                subscription.EndDate = DateTime.Now.AddMonths(1);
+            }
+
+            subscription.IsActive = true;
+
+            if (subscription.Save())
+            {
+                SubscriptionID = subscription.SubscriptionID;
+            }
+            else
+            {
+                return -1; 
+            }
+
+           
+            clsPayment payment = new clsPayment();
+            payment.SubscriptionID = SubscriptionID;
+            payment.CreatedByUserID = CreatedByUserID;
+            payment.PaymentDate = DateTime.Now;
+            payment.AmountPaid = AmountPaid;
+
+            if (payment.Save())
+            {
+                PaymentID = payment.PaymentID;
+            }
+            else
+            {
+                return -1; 
+            }
+
+            return MemberID; 
         }
 
         private bool _UpdateMember()

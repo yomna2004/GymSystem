@@ -20,10 +20,10 @@ namespace GymSystem.Members
         private clsMember _Member;
         public FrmAddMember()
         {
-            InitializeComponent(); 
+            InitializeComponent();
         }
 
-        
+
         private void _FillSportsComboBox()
         {
             DataTable dtSpecializations = clsSpecialization.GetAllSpecializations();
@@ -33,7 +33,7 @@ namespace GymSystem.Members
             SportCB.ValueMember = "SpecializationID";
 
             if (SportCB.Items.Count > 0)
-                SportCB.SelectedIndex = 0; 
+                SportCB.SelectedIndex = 0;
         }
         private void _FillTrainersComboBox()
         {
@@ -98,7 +98,7 @@ namespace GymSystem.Members
         {
             _FillSubscriptionPlanComboBox();
             _FillSportsComboBox();
-           
+
         }
 
 
@@ -139,6 +139,7 @@ namespace GymSystem.Members
             this.Close();
         }
 
+        
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!this.ValidateChildren())
@@ -148,80 +149,56 @@ namespace GymSystem.Members
                 return;
             }
 
+            int personID = ctrlPersonCardWithFilter1.PersonID;
+
+            if (personID == -1)
+            {
+                MessageBox.Show("Please select or add a person first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (_Member == null)
             {
                 _Member = new clsMember();
             }
 
-            if (_Member.PersonInfo == null)
-            {
-                _Member.PersonInfo = new clsPerson();
-            }
-            int PersonID = ctrlPersonCardWithFilter1.PersonID;
-            if (PersonID != -1)
-            {
-                _Member.PersonID = PersonID;
-            }
-
+            _Member.PersonID = personID;
             _Member.JoinDate = DateTime.Now;
             _Member.IsActive = true;
             _Member.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
-            if (!_Member.PersonInfo.Save())
+            int planID = SubscriptionPlanCB.SelectedValue != null ? (int)SubscriptionPlanCB.SelectedValue : -1;
+            int trainerID = TrainerCB.SelectedValue != null ? (int)TrainerCB.SelectedValue : -1;
+            int sportID = SportCB.SelectedValue != null ? (int)SportCB.SelectedValue : -1;
+
+            clsSubscriptionPlans selectedPlan = clsSubscriptionPlans.Find(planID);
+            int amountPaid = (selectedPlan != null) ? (int)selectedPlan.Price : 0; 
+
+            int memberID = _Member.SaveComplete(
+                clsGlobal.CurrentUser.UserID,
+                planID,
+                trainerID,
+                sportID,
+                amountPaid
+            );
+
+            if (memberID != -1)
             {
-                MessageBox.Show("Error: Person Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                MessageBox.Show($"Member, Subscription, and Payment Saved Successfully.\nMember ID: {_Member.MemberID}\nMember Code: {_Member.MemberCode}",
+                                "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            _Member.PersonID = _Member.PersonInfo.PersonID;
-
-            if (!_Member.Save())
-            {
-                MessageBox.Show("Error: Member Data Is not Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            clsSubscriptions subscription = new clsSubscriptions();
-
-            if (SubscriptionPlanCB.SelectedValue != null)
-                subscription.PlanID = (int)SubscriptionPlanCB.SelectedValue;
-
-            subscription.MemberID = _Member.MemberID;
-
-            if (TrainerCB.SelectedValue != null)
-                subscription.TrainerID = (int)TrainerCB.SelectedValue;
-            else
-                subscription.TrainerID = -1;
-
-            if (SportCB.SelectedValue != null)
-                subscription.SportID = (int)SportCB.SelectedValue;
-
-            subscription.StartDate = DateTime.Now;
-
-            clsSubscriptionPlans selectedPlan = clsSubscriptionPlans.Find(subscription.PlanID);
-            if (selectedPlan != null && selectedPlan.DurationInMonths.HasValue)
-            {
-                subscription.EndDate = DateTime.Now.AddMonths(selectedPlan.DurationInMonths.Value);
-            }
-            else
-            {
-                subscription.EndDate = DateTime.Now.AddMonths(1);
-            }
-
-            subscription.IsActive = true;
-
-            if (subscription.Save())
-            {
-                MessageBox.Show($"Member and Subscription Saved Successfully.\nMember ID: {_Member.MemberID}\nMember Code: {_Member.MemberCode}",
-                                        "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information); lblMemberID.Text = _Member.MemberID.ToString();
                 lblMemberCode.Text = _Member.MemberCode.ToString();
-                lblMemberID.Text = _Member.MemberID.ToString();
-                this.Close();
+                SportCB.Enabled = false;
+                TrainerCB.Enabled = false;
+                SubscriptionPlanCB.Enabled = false;
             }
             else
             {
-                MessageBox.Show("Member was saved successfully, but the Subscription failed to save.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error: Failed to save Member, Subscription or Payment data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
     }
 }
+

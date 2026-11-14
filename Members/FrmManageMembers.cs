@@ -219,5 +219,12 @@ namespace GymSystem.Members
                
             }
         }
+
+        private void renewSubscriptionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int MemberID = (int)dgvMembers.CurrentRow.Cells[0].Value;
+            FrmRenewSubscription frm = new FrmRenewSubscription(MemberID);
+            frm.ShowDialog();
+        }
     }
 }

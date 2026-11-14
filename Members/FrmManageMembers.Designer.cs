@@ -35,6 +35,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showPersonInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cbIsActive = new System.Windows.Forms.ComboBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblRecordsCount = new System.Windows.Forms.Label();
@@ -43,8 +45,7 @@
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.AddTrainerbtn = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.deactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.renewSubscriptionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -77,9 +78,10 @@
             this.showPersonInfoToolStripMenuItem,
             this.editInfoToolStripMenuItem,
             this.deactivateToolStripMenuItem,
-            this.reactivateToolStripMenuItem});
+            this.reactivateToolStripMenuItem,
+            this.renewSubscriptionToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 136);
             // 
             // showPersonInfoToolStripMenuItem
             // 
@@ -94,6 +96,20 @@
             this.editInfoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editInfoToolStripMenuItem.Text = "Edit Info";
             this.editInfoToolStripMenuItem.Click += new System.EventHandler(this.editInfoToolStripMenuItem_Click);
+            // 
+            // deactivateToolStripMenuItem
+            // 
+            this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
+            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deactivateToolStripMenuItem.Text = "Deactivate";
+            this.deactivateToolStripMenuItem.Click += new System.EventHandler(this.deactivateToolStripMenuItem_Click);
+            // 
+            // reactivateToolStripMenuItem
+            // 
+            this.reactivateToolStripMenuItem.Name = "reactivateToolStripMenuItem";
+            this.reactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reactivateToolStripMenuItem.Text = "Reactivate";
+            this.reactivateToolStripMenuItem.Click += new System.EventHandler(this.reactivateToolStripMenuItem_Click);
             // 
             // cbIsActive
             // 
@@ -198,19 +214,12 @@
             this.AddTrainerbtn.TabIndex = 97;
             this.AddTrainerbtn.Click += new System.EventHandler(this.AddMemberbtn_Click);
             // 
-            // deactivateToolStripMenuItem
+            // renewSubscriptionToolStripMenuItem
             // 
-            this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
-            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.deactivateToolStripMenuItem.Text = "Deactivate";
-            this.deactivateToolStripMenuItem.Click += new System.EventHandler(this.deactivateToolStripMenuItem_Click);
-            // 
-            // reactivateToolStripMenuItem
-            // 
-            this.reactivateToolStripMenuItem.Name = "reactivateToolStripMenuItem";
-            this.reactivateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reactivateToolStripMenuItem.Text = "Reactivate";
-            this.reactivateToolStripMenuItem.Click += new System.EventHandler(this.reactivateToolStripMenuItem_Click);
+            this.renewSubscriptionToolStripMenuItem.Name = "renewSubscriptionToolStripMenuItem";
+            this.renewSubscriptionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.renewSubscriptionToolStripMenuItem.Text = "Renew Subscription";
+            this.renewSubscriptionToolStripMenuItem.Click += new System.EventHandler(this.renewSubscriptionToolStripMenuItem_Click);
             // 
             // FrmManageMembers
             // 
@@ -255,5 +264,6 @@
         private System.Windows.Forms.ToolStripMenuItem editInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deactivateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reactivateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem renewSubscriptionToolStripMenuItem;
     }
 }

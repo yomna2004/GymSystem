@@ -43,7 +43,7 @@
   <ItemGroup>
     <Compile Include="clsAttendanceLog.cs" />
     <Compile Include="clsMember.cs" />
-    <Compile Include="clsPayments.cs" />
+    <Compile Include="clsPayment.cs" />
     <Compile Include="clsPerson.cs" />
     <Compile Include="clsSpecialization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

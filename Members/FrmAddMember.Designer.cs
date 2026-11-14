@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lblMemberID = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblMemberCode = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -61,32 +59,6 @@
             this.lblTitle.Size = new System.Drawing.Size(431, 60);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "Add New Member";
-            // 
-            // lblMemberID
-            // 
-            this.lblMemberID.AutoSize = true;
-            this.lblMemberID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMemberID.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblMemberID.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
-            this.lblMemberID.Location = new System.Drawing.Point(168, 49);
-            this.lblMemberID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMemberID.Name = "lblMemberID";
-            this.lblMemberID.Size = new System.Drawing.Size(38, 20);
-            this.lblMemberID.TabIndex = 120;
-            this.lblMemberID.Text = "N/A";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label22.Image = global::GymSystem.Properties.Resources.Wallpaper_color_blue_background_minimalism_navy_blue;
-            this.label22.Location = new System.Drawing.Point(31, 49);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(107, 20);
-            this.label22.TabIndex = 119;
-            this.label22.Text = "Member ID :";
             // 
             // label2
             // 
@@ -297,8 +269,6 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.lblMemberCode);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblMemberID);
-            this.Controls.Add(this.label22);
             this.Controls.Add(this.lblTitle);
             this.Name = "FrmAddMember";
             this.Text = "FrmAddUpdateMember";
@@ -312,8 +282,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2HtmlLabel lblTitle;
-        private System.Windows.Forms.Label lblMemberID;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblMemberCode;
         private System.Windows.Forms.ErrorProvider errorProvider1;

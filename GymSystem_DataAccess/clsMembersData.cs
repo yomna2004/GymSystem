@@ -173,7 +173,7 @@ namespace GymSystem_DataAccess
 
             return memberID;
         }
-
+     
         public static bool UpdateMember(int MemberID, int PersonID, string MemberCode, DateTime JoinDate, bool IsActive, int CreatedByUserID)
         {
             int rowsAffected = 0;

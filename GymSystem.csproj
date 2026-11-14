@@ -162,6 +162,9 @@
     <EmbeddedResource Include="Members\FrmManageMembers.resx">
       <DependentUpon>FrmManageMembers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Members\FrmRenewSubscription.resx">
+      <DependentUpon>FrmRenewSubscription.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Members\FrmUpdateMember.resx">
       <DependentUpon>FrmUpdateMember.cs</DependentUpon>
     </EmbeddedResource>
